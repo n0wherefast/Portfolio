@@ -2,6 +2,12 @@
 import { log } from 'console'
 import React ,{FormEvent, useState}from 'react'
 
+// class netlify extends HTMLAttribute {
+//   constructor() {
+//     super("my-custom-attribute", "default-value");
+//   }
+// }
+
 function Contacts() {
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')
@@ -68,7 +74,7 @@ function Contacts() {
         </div>
         <form
         onSubmit={handleSubmit}
-          
+          data-netlify
           name="contact"
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
         >
