@@ -76,7 +76,7 @@ function Navbar() {
              <IoIosArrowForward className={ isClick?`rotate-90  text-sky-500 hover:text-sky-500 transition-all ease-in` : `text-slate-200 hover:text-sky-500 transition-all ease-in`} size={27} />
            </div>
           {isClick? 
-            <div className={isOpen? `w-full flex flex-col md:flex-row items-start md:m-2 md:gap-1 bg-orange-500}>
+            <div className={ `w-full flex flex-col md:flex-row items-start md:m-2 md:gap-1 bg-orange-500 `}>
             <div className='p-3 text-lg flex md:flex-row items-center  gap-1'>
             <p >Dark Mode : </p>
             <Switches checked={isDarkMode} handle={()=>handleDarkMode()} />
