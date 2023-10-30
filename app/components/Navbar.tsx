@@ -29,10 +29,10 @@ function Navbar() {
   useEffect(() => {
     function handleResize() {
       setWidth(innerWidth)
-      if(width> 800){
+      if(window.innerWidth > 800 || window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
-      }
+      } 
     }
 
      window.addEventListener('resize', handleResize);
@@ -83,7 +83,7 @@ function Navbar() {
             Testimonials
           </a> */}
         </nav>
-         {isOpen? null: width > 800 ? setMenu() :null}
+         {isOpen? null: window.innerWidth > 800 ? setMenu() :null}
 
 
         <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
