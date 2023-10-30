@@ -29,8 +29,9 @@ function Navbar() {
   useEffect(() => {
     function handleResize() {
       setWidth(innerWidth)
-      if(window.innerWidth> 800){
+      if(width> 800){
         setIsOpen(false)
+        setIsClick(false)
       }
     }
 
@@ -45,7 +46,7 @@ function Navbar() {
 
   const  setMenu = () =>{
     return(
-      <div  onClick={()=>setIsClick(!isClick)} className= {` flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
+      <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
                           <p className=' '>Set</p>
                           <IoIosArrowForward className={ isClick?`rotate-90  text-sky-500 hover:text-sky-500 transition-all ease-in` : `text-slate-200 hover:text-sky-500 transition-all ease-in`} size={27} />
                         </div>
@@ -65,7 +66,7 @@ function Navbar() {
                   </a>
                 </p>
                 <button className= {isOpen? `  flex rotate-180 md:hidden text-sky-500 transition-all ease-in duration-200`:` hover:bg-sky-900 p-2 rounded-full rotate-0 flex md:hidden text-white transition-all ease-in`  }
-                        onClick={()=>setIsOpen(!isOpen)}
+                        onClick={()=>(setIsOpen(!isOpen) ,setIsClick(false))}
                 >
                 { isOpen ? <IoMdClose size={30} /> :   <FaBars size={25} />}
                 </button>
@@ -85,7 +86,7 @@ function Navbar() {
          {isOpen? null: width > 800 ? setMenu() :null}
 
 
-        <div className={` w-full  md:w-auto p-3  flex  md:justify-end ` } >
+        <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
            <div className = {isClick? ` transition-all ease-in duration-200  h-32 md:h-12 md:w-96 flex flex-col md:flex-row items-start md:items-center justify-center `:
                                       ` h-4 transition-all ease-in duration-200 flex md:flex-row`}>
                         { isOpen? setMenu():null}
@@ -106,8 +107,8 @@ function Navbar() {
         </div>
         <a
           href="#contact"
-          className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0` 
-                    :  ` hidden md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-gray-600 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
+          className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
+                    :  ` hidden md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
           Hire Me
         </a>
         </div>
