@@ -29,9 +29,9 @@ function Navbar() {
   }
   const toogleDarkMode = () => {
     if (isDarkMode === true) {
-      return setBg('bg-sky-950 text-white')
+      return setBg('sky-950 text-white')
     }else{
-      return setBg('bg-slate-300 text-black')
+      return setBg('slate-300 text-black')
     }
   }
   useEffect(()=>{
@@ -67,7 +67,7 @@ function Navbar() {
 
   
   return (
-    <header className = { isOpen?` transition-all duration-500 ease-in-out bg-sky-950 md:sticky top-0 z-10 text-white ` : `  transition-all duration-300 ease-in-out ${bg} md:sticky top-0 z-10`}>
+    <header className = { isOpen?` transition-all duration-500 ease-in-out bg-sky-950 md:sticky top-0 z-10 text-white ` : `  transition-all duration-300 ease-in-out md:bg-${bg} md:sticky top-0 z-10`}>
         <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
                 
