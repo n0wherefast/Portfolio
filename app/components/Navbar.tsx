@@ -12,10 +12,12 @@ import engFlag from "../img/united_kingdom_flags_flag_17079.png"
 
 function Navbar() {
   const [isOpen,setIsOpen] = useState(false)
-  const [isDarkMode,setIsDarkMode] = useState(false)
+  const [isDarkMode,setIsDarkMode] = useState(true)
   const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
+  const [bg,setBg] =useState('bg-slate-500')
+ 
  
   const handleDarkMode = () => {
     setIsDarkMode(!isDarkMode)
@@ -25,6 +27,16 @@ function Navbar() {
     setIsLangSwitch(!isLangSwitch)
     console.log (isLangSwitch)
   }
+  const toogleDarkMode = () => {
+    if (isDarkMode === true) {
+      return setBg('bg-sky-950 text-white')
+    }else{
+      return setBg('bg-slate-300 text-black')
+    }
+  }
+  useEffect(()=>{
+    toogleDarkMode()
+  },[isDarkMode])
 
   useEffect(() => {
     function handleResize() {
@@ -55,12 +67,12 @@ function Navbar() {
 
   
   return (
-    <header className = { isOpen?` transition-all duration-500 ease-in-out bg-sky-950 md:sticky top-0 z-10 text-white ` : ` text-white transition-all duration-300 ease-in-out md:bg-gray-900 md:sticky top-0 z-10`}>
+    <header className = { isOpen?` transition-all duration-500 ease-in-out bg-sky-950 md:sticky top-0 z-10 text-white ` : `  transition-all duration-300 ease-in-out ${bg} md:sticky top-0 z-10`}>
         <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
                 
         <div className='flex flex-row w-full md:w-auto justify-between items-center m-2 md:p-0'>
-                <p className="title-font font-medium text-white md:mb-0">
+                <p className="title-font font-medium md:mb-0">
                   <a href="#about" className={isOpen? `ml-3 text-3xl md:text-xl`:`ml-3 text-2xl`}>
                     Alessio Russo 
                   </a>
@@ -94,7 +106,7 @@ function Navbar() {
                           <div className={   `w-full flex flex-col md:flex-row items-start  md:m-2 md:gap-1`}>
                           <div className='p-3 text-lg flex md:flex-row items-center  gap-1'>
                           <p >Dark Mode : </p>
-                          <Switches checked={isDarkMode} handle={()=>handleDarkMode()} />
+                          <Switches checked={isDarkMode} handle={()=>handleDarkMode()}  />
                           </div>
                           <div className='text-xl p-3 flex md:flex-row items-center gap-1'>
                           <Image className='w-6' src={itaFlag} alt='Ita-Flag'/>
@@ -108,7 +120,7 @@ function Navbar() {
         <a
           href="#contact"
           className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
-                    :  ` hidden md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
+                    :  ` hidden md:inline-flex items-center ${bg} border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
           Hire Me
         </a>
         </div>
