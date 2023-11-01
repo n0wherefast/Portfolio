@@ -25,6 +25,7 @@ function Navbar() {
     console.log (isLangSwitch)
   }
   
+
   useEffect(() => {
     function handleResize() {
       setWidth(innerWidth)
