@@ -3,23 +3,23 @@ import { useState,useEffect } from 'react'
 import { PiSunBold } from 'react-icons/pi'
 
 // const  api = 'https://api.openweathermap.org/data/3.0/onecall?lat=37.507877lon=15.083030&&appid=d7f2302909be07e4e4066c32537729f5'
-    const getWeatheData = async () =>{
-            const res = await fetch("api",{
-                next:{
-                    revalidate: 160,
-                }
-            })
-            return res.json()
-    }
+    // const getWeatheData = async () =>{
+    //         const res = await fetch("api",{
+    //             next:{
+    //                 revalidate: 160,
+    //             }
+    //         })
+    //         return res.json()
+    // }
          
  function Weather() {
    const [data,setData] = useState()
 
-    useEffect(()=>{
-        getWeatheData().then(res=>(
-      setData(res)
-    )) 
-    },[])
+    // useEffect(()=>{
+    //     getWeatheData().then(res=>(
+    //   setData(res)
+    // )) 
+    // },[])
     
 
     console.log(data)
