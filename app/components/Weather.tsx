@@ -22,7 +22,7 @@ import { PiSunBold } from 'react-icons/pi'
     // },[])
     
 
-    console.log(data)
+    // console.log(data)
   return (
     <div className= {`flex  items-center w-28 gap-4 p-1 mr-2 ml-2`}>
         <div>           

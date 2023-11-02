@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context/cotext'
 
 function Projects() {
   const {isDarkMode}:any = useGlobalContext()
-  const {scrollXProgress} = useScroll()
+  
   
   return (
     <section id="projects" className={`transition-all easy-in-out duration-300 ${isDarkMode? ` bg-gray-900 `: `bg-slate-300 `}`} >

@@ -6,7 +6,6 @@ import {FaBars} from 'react-icons/fa'
 import {IoMdClose} from 'react-icons/io'
 import Switches from './Switch'
 import Image from 'next/image'
-import { motion } from "framer-motion"
 import itaFlag from "../img/italy_flags_flag_17018.png"
 import engFlag from "../img/united_kingdom_flags_flag_17079.png"
 import Weather from './Weather'

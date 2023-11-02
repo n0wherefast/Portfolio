@@ -44,9 +44,6 @@ function Contacts() {
             height="100%"
             title="map"
             className="absolute inset-0"
-            frameBorder={0}
-            marginHeight={0}
-            marginWidth={0}
             style={{ filter: "opacity(0.7)" }}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.420516201429!2d15.127700611969189!3d37.54515522523635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313fb7f69fe6e15%3A0x70d954bfd5c3a1eb!2sVia%20Firenze%2C%2024%2C%2095021%20Aci%20Castello%20CT!5e0!3m2!1sit!2sit!4v1698014771968!5m2!1sit!2sit"   
            />
@@ -92,6 +89,7 @@ function Contacts() {
               Name
             </label>
             <input
+              autoComplete='on'
               type="text"
               id="name"
               name="name"
@@ -104,6 +102,7 @@ function Contacts() {
               Email
             </label>
             <input
+              autoComplete='on'
               type="email"
               id="email"
               name="email"
