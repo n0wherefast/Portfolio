@@ -9,6 +9,7 @@ import Image from 'next/image'
 import itaFlag from "../img/italy_flags_flag_17018.png"
 import engFlag from "../img/united_kingdom_flags_flag_17079.png"
 import Weather from './Weather'
+import { tree } from 'next/dist/build/templates/app-page'
 
 
 
@@ -17,6 +18,7 @@ function Navbar() {
   const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
+  const [isMenu , setIsMenu] = useState(true)
  
 
   const handleLangSwitch = () => {
@@ -26,26 +28,28 @@ function Navbar() {
   
 
   useEffect(() => {
+  
     function handleResize() {
-    
-      if (window&&window.innerWidth > 800 || window&&window.innerWidth < 500){
+      if(window.innerWidth > 800 || window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
+        isOpen? null: window.innerWidth > 800 ? setIsMenu(true) : setIsMenu(false)
       } 
     }
-
-     window&&window.addEventListener('resize', handleResize);
+     window.addEventListener('resize', handleResize);
 
     return () => {
-      window&&window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize);
       
     };
 
   }, []);
 
-  const  setMenu = () =>{
+  console.log(isMenu)
+
+  const  menuSettings = () =>{
     return(
-      <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
+                        <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
                           <button className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full">
                             <span className="flex relative z-10">Set
                             <IoIosArrowForward className={ isClick?`rotate-90  hover:text-white transition-all ease-in` : ` transition-all ease-in`} size={27} />
@@ -90,13 +94,15 @@ function Navbar() {
           </a> */}
           
         </nav>
-         {isOpen? null:window.innerWidth > 800 ? setMenu() :null}
+         
+              { isMenu? menuSettings():null}
+         
 
 
         <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
            <div className = {isClick? ` transition-all ease-in duration-200  h-32 md:h-12 md:w-96 flex flex-col md:flex-row items-start md:items-center justify-center `:
                                       ` h-4 transition-all ease-in duration-200 flex md:flex-row`}>
-                        { isOpen? setMenu():null}
+                        { isOpen? menuSettings():null}
                         {isClick? 
                           <div className={   `w-full flex flex-col md:flex-row items-start  md:m-2 md:gap-1`}>
                           <div className='p-3 text-lg flex md:flex-row items-center  gap-1'>
