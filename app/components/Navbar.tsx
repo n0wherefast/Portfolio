@@ -16,8 +16,6 @@ function Navbar() {
   const [isOpen,setIsOpen] = useState(false)
   const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
-  const [width, setWidth] = useState(window.innerWidth)
-
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
  
 
@@ -29,7 +27,7 @@ function Navbar() {
 
   useEffect(() => {
     function handleResize() {
-      setWidth(innerWidth)
+    
       if(window.innerWidth > 800 || window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
