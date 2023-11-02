@@ -11,6 +11,7 @@ import engFlag from "../img/united_kingdom_flags_flag_17079.png"
 import Weather from './Weather'
 
 
+
 function Navbar() {
   const [isOpen,setIsOpen] = useState(false)
   const [isLangSwitch,setIsLangSwitch] = useState(false)
@@ -27,16 +28,16 @@ function Navbar() {
   useEffect(() => {
     function handleResize() {
     
-      if(window.innerWidth > 800 || window.innerWidth < 500){
+      if (window&&window.innerWidth > 800 || window&&window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
       } 
     }
 
-     window.addEventListener('resize', handleResize);
+     window&&window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window&&window.removeEventListener('resize', handleResize);
       
     };
 
@@ -89,7 +90,7 @@ function Navbar() {
           </a> */}
           
         </nav>
-         {isOpen? null: window.innerWidth > 800 ? setMenu() :null}
+         {isOpen? null:window.innerWidth > 800 ? setMenu() :null}
 
 
         <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
