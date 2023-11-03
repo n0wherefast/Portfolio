@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context/cotext'
-import {IoIosArrowForward} from 'react-icons/io'
+import {IoIosSettings} from 'react-icons/io'
 import {FaBars} from 'react-icons/fa'
 import {IoMdClose} from 'react-icons/io'
 import Switches from './Switch'
@@ -18,7 +18,7 @@ function Navbar() {
   const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
-  const [isMenu , setIsMenu] = useState(true)
+  const [isMenu , setIsMenu] = useState<boolean>(true)
  
 
   const handleLangSwitch = () => {
@@ -33,7 +33,7 @@ function Navbar() {
       if(window.innerWidth > 800 || window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
-        isOpen? null: window.innerWidth > 800 ? setIsMenu(true) : setIsMenu(false)
+        isOpen? null: window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
       } 
     }
      window.addEventListener('resize', handleResize);
@@ -50,9 +50,12 @@ function Navbar() {
   const  menuSettings = () =>{
     return(
                         <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
-                          <button className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full">
-                            <span className="flex relative z-10">Set
-                            <IoIosArrowForward className={ isClick?`rotate-90  hover:text-white transition-all ease-in` : ` transition-all ease-in`} size={27} />
+                          <button 
+                          // className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full"
+                          >
+                            <span className="flex relative z-10">
+                            <IoIosSettings className={ isClick?`rotate-90 text-cyan-500 transition-all ease-in` : ` rotate-180 transition-all ease-in`} size={35} />
+                            
                             </span>
                           </button>
                         </div>
@@ -61,7 +64,7 @@ function Navbar() {
 
   
   return (
-    <header className = { isOpen?` transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
+    <header  className = { isOpen?` p-3 transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
                                   `transition-all duration-500 ease-in-out  ${isDarkMode?'md:bg-sky-950 text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
 
         <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start` :
@@ -95,12 +98,12 @@ function Navbar() {
           
         </nav>
          
-              { isMenu? menuSettings():null}
+              
          
 
 
         <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
-           <div className = {isClick? ` transition-all ease-in duration-200  h-32 md:h-12 md:w-96 flex flex-col md:flex-row items-start md:items-center justify-center `:
+           <div className = {isClick? ` p-2 transition-all ease-in duration-200  h-32 md:h-12 md:w-96 flex flex-col md:flex-row items-start md:items-center justify-center `:
                                       ` h-4 transition-all ease-in duration-200 flex md:flex-row`}>
                         { isOpen? menuSettings():null}
                         {isClick? 
@@ -119,9 +122,11 @@ function Navbar() {
            
         </div>
         
-          <a href="#contact" className={` ${isDarkMode? 'text-white':'text-black'} rounded relative flex h-[40px] w-28 items-center justify-center overflow-hidden  font-medium transition-all ease-in duration-400 before:absolute before:inset-0 before:border-0 before:border-red-500 before:duration-100 before:ease-linear hover:bg-red-500 hover:text-white hover:before:border-[25px]`}>
-              <span className="relative z-10">Hire Me</span>
-          </a>
+          <div  className={` ${isDarkMode? 'text-white':'text-black'}
+           
+           `}>
+              <span className="relative z-10">{ isMenu? menuSettings():null}</span>
+          </div>
 
         </div>
         
