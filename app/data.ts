@@ -1,4 +1,4 @@
-import todo from './img/todo app.jpg'
+import todo from './img/todo_app.jpg'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind']
         
