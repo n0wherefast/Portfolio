@@ -18,7 +18,7 @@ function Navbar() {
   const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
-  const [isMenu , setIsMenu] = useState<boolean>(true)
+  const [isMenu , setIsMenu] = useState<boolean>()
  
 
   const handleLangSwitch = () => {
@@ -33,14 +33,14 @@ function Navbar() {
       if(window.innerWidth > 800 || window.innerWidth < 500){
         setIsOpen(false)
         setIsClick(false)
-        isOpen? null: window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
+        window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
       } 
     }
+     window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
      window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      
     };
 
   }, []);
