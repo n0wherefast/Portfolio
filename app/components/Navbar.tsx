@@ -19,6 +19,7 @@ function Navbar() {
   const [isClick,setIsClick] = useState(false)
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
   const [isMenu , setIsMenu] = useState<boolean>()
+  const [isNameChanged,setIsNameChanged] = useState(true)
  
 
   const handleLangSwitch = () => {
@@ -45,7 +46,7 @@ function Navbar() {
 
   }, []);
 
-  console.log(isMenu)
+
 
   const  menuSettings = () =>{
     return(
@@ -72,8 +73,8 @@ function Navbar() {
                 
         <div className='flex flex-row w-full md:w-auto justify-between items-center m-2 md:p-0'>
                 <p className="title-font font-medium md:mb-0">
-                  <a href="/" className={isOpen? `ml-3 text-3xl md:text-xl`:`ml-3 text-2xl`}>
-                    Alessio Russo 
+                  <a href="/" onMouseOver={()=> setIsNameChanged(!isNameChanged)} onMouseLeave={()=>setIsNameChanged(!isNameChanged)} className={isOpen? `ml-3 text-3xl md:text-xl `:`ml-3 text-2xl`}>
+                    {isNameChanged === true ? "Alessio Russo" : "Web Dev Portfolio" }  
                   </a>
                 </p>
                 
@@ -85,7 +86,7 @@ function Navbar() {
         </div>
         <nav  className={isOpen? ` gap-2  w-full md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	flex  flex-col md:flex-row items-start text-base justify-start  ` :
                                  ` hidden  md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	md:flex  items-center text-base justify-center`}>
-             <hr /> <Weather/>    <hr />                
+             {/* <hr /> <Weather/>    <hr />                 */}
           <a href="#projects" className=" text-3xl md:text-xl  mr-5 py-1 px-3  rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
              <span>Past Work</span>
           </a>
