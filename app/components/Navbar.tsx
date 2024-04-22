@@ -20,6 +20,7 @@ function Navbar() {
   const {isDarkMode,handleDarkMode}:any = useGlobalContext()
   const [isMenu , setIsMenu] = useState<boolean>()
   const [isNameChanged,setIsNameChanged] = useState(true)
+  const  [size,setSize] =useState(0)
  
 
   const handleLangSwitch = () => {
@@ -27,7 +28,7 @@ function Navbar() {
     console.log (isLangSwitch)
   }
   
-
+console.log(size)
   useEffect(() => {
   
     function handleResize() {
@@ -36,6 +37,7 @@ function Navbar() {
         setIsClick(false)
         window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
       } 
+      setSize(window.innerWidth)
     }
      window.innerWidth > 500 ? setIsMenu(true) : setIsMenu(false)
      window.addEventListener('resize', handleResize);
@@ -55,8 +57,8 @@ function Navbar() {
                           // className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full"
                           >
                             <span className="flex relative z-10">
-                            <IoIosSettings className={ isClick?`rotate-90 text-cyan-500 transition-all ease-in` : ` rotate-180 transition-all ease-in`} size={35} />
-                            
+                            <IoIosSettings 
+                              className={ isClick?`rotate-90 text-cyan-500 transition-all ease-in` : ` rotate-180 transition-all ease-in`} size={35} />
                             </span>
                           </button>
                         </div>
@@ -68,7 +70,7 @@ function Navbar() {
     <header  className = { isOpen?` p-3 transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
                                   `transition-all duration-500 ease-in-out  ${isDarkMode?'md:bg-sky-950 text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
 
-        <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start` :
+        <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-around items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
                 
         <div className='flex flex-row w-full md:w-auto justify-between items-center m-2 md:p-0'>
@@ -106,6 +108,7 @@ function Navbar() {
         <div className={` w-full  md:w-auto p-3  flex  md:justify-end  ` } >
            <div className = {isClick? ` p-2 transition-all ease-in duration-200  h-32 md:h-12 md:w-96 flex flex-col md:flex-row items-start md:items-center justify-center `:
                                       ` h-4 transition-all ease-in duration-200 flex md:flex-row`}>
+                       
                         { isOpen? menuSettings():null}
                         {isClick? 
                           <div className={   `w-full flex flex-col md:flex-row items-start  md:m-2 md:gap-1`}>
@@ -113,21 +116,27 @@ function Navbar() {
                           <p >Dark Mode : </p>
                           <Switches checked={isDarkMode} handle={()=>handleDarkMode()}  />
                           </div>
-                          <div className='text-xl p-3 flex md:flex-row items-center gap-1'>
+                          {/* <div className='text-xl p-3 flex md:flex-row items-center gap-1'>
                           <Image className='w-5 rounded-full' src={itaFlag} alt='Ita-Flag'/>
                           <Switches checked={isLangSwitch} handle={()=>handleLangSwitch()} />
                           <Image className='w-5 rounded-full' src={engFlag} alt='UK-flag'/>
-                        </div>          
+                        </div>           */}
                       </div> : null }
            </div>
            
         </div>
-        
+         {size > 770 ?
           <div  className={` ${isDarkMode? 'text-white':'text-black'}
-           
            `}>
               <span className="relative z-10">{ isMenu? menuSettings():null}</span>
-          </div>
+          </div> 
+           : null } 
+           <a
+          href="#contact"
+          className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
+                    :  ` hidden md:inline-flex items-center ml-5 bg-slate-500 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
+          Hire Me
+        </a>          
 
         </div>
         
