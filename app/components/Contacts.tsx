@@ -36,7 +36,8 @@ function Contacts() {
 
 
   return (
-    <section id="contact" className="relative mt-[8rem]">
+    <section id="contact" className="relative mt-[8rem] flex flex-col justify-center items-center">
+      <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Send me a message!</h1>
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
         <div className={` lg:w-2/3 md:w-1/2 ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative `}>
           <iframe
@@ -80,9 +81,8 @@ function Contacts() {
           <h2 className="t sm:text-4xl text-3xl mb-1 font-medium title-font">
             Hire Me
           </h2>
-          <p className="leading-relaxed mb-5">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-            suscipit officia aspernatur veritatis. Asperiores, aliquid?
+          <p className="leading-relaxed mb-5 text-xl font-thin">
+          Got a question or proposal, or just want to say hello? Go ahead.
           </p>
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-400">

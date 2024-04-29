@@ -10,17 +10,15 @@ function Projects() {
   
   
   return (
-    <section  className={`transition-all easy-in-out duration-300 ${isDarkMode? ` bg-gray-900 md:flex justify-center items-center md:h-[80vh] `: `bg-slate-300 `}`} >
+    <section  className={`transition-all easy-in-out duration-300 ${isDarkMode? ` bg-gray-900 md:flex justify-center items-center md:min-h-[80vh] `: `bg-slate-300 `}`} >
       <div className="container px-5 py-10 mx-auto text-center lg:px-10">
-        <motion.div initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}} className="flex flex-col w-full mb-20">
+        <motion.div initial={{opacity:0 ,y:0-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}} className="flex flex-col w-full mb-20">
           {/* <CodeIcon className="mx-auto inline-block w-10 mb-4" /> */}
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 ">
+          <h1 className="sm:text-6xl text-3xl font-black title-font mb-4 ">
             Apps I&apos;ve Built
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-            facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-            fuga dolore.
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-xl">
+          Selected work I&rsquo;ve taken on in the past.
           </p>
         </motion.div>
         <div className="flex flex-wrap gap-6 items-center justify-center ">

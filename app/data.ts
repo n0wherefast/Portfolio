@@ -1,6 +1,6 @@
 import todo from './img/todo_app.jpg'
 
-export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind']
+export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js']
         
 
 export const projects = [
