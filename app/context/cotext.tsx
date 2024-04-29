@@ -5,13 +5,19 @@ const AppContext = createContext({})
 
 const AppProvider : React.FC<{children:ReactNode}> =  ({children}) => {
     const [isDarkMode,setIsDarkMode] = useState(true)
+    const [isLangSwitch,setIsLangSwitch] = useState(false)
+
 
     const handleDarkMode = () => {
         setIsDarkMode(!isDarkMode)
        }
+       const handleLangSwitch = () => {
+        setIsLangSwitch(!isLangSwitch)
+        // console.log (isLangSwitch)
+      }
 
     return(
-        <AppContext.Provider value={{isDarkMode,setIsDarkMode,handleDarkMode}}>
+        <AppContext.Provider value={{isDarkMode,isLangSwitch,handleLangSwitch,setIsLangSwitch,setIsDarkMode,handleDarkMode}}>
           {children}
         </AppContext.Provider>
       )

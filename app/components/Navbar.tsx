@@ -6,29 +6,37 @@ import {FaBars} from 'react-icons/fa'
 import {IoMdClose} from 'react-icons/io'
 import Switches from './Switch'
 import Image from 'next/image'
-import itaFlag from "../img/italy_flags_flag_17018.png"
-import engFlag from "../img/united_kingdom_flags_flag_17079.png"
+import itaFlag from "../asset/italy_flags_flag_17018.png"
+import engFlag from "../asset/united_kingdom_flags_flag_17079.png"
 import Weather from './Weather'
 import { tree } from 'next/dist/build/templates/app-page'
 
+export interface CONTEXT {
+  isDarkMode?:boolean,
+  isLangSwitch?:boolean,
+  setIsLangSwitch? : Function,
+  setIsDarkMode? : Function,
+  handleDarkMode? :Function | any,
+  handleLangSwitch? : Function | any,
+}
 
 
 function Navbar() {
   const [isOpen,setIsOpen] = useState(false)
-  const [isLangSwitch,setIsLangSwitch] = useState(false)
+  // const [isLangSwitch,setIsLangSwitch] = useState(false)
   const [isClick,setIsClick] = useState(false)
-  const {isDarkMode,handleDarkMode}:any = useGlobalContext()
+  const {isDarkMode,handleDarkMode,isLangSwitch,handleLangSwitch}:CONTEXT = useGlobalContext()
   const [isMenu , setIsMenu] = useState<boolean>()
   const [isNameChanged,setIsNameChanged] = useState(true)
   const  [size,setSize] =useState(0)
  
 
-  const handleLangSwitch = () => {
-    setIsLangSwitch(!isLangSwitch)
-    console.log (isLangSwitch)
-  }
+  // const handleLangSwitch = () => {
+  //   setIsLangSwitch(!isLangSwitch)
+  //   console.log (isLangSwitch)
+  // }
   
-console.log(size)
+// console.log(size)
   useEffect(() => {
   
     function handleResize() {
@@ -116,11 +124,11 @@ console.log(size)
                           <p >Dark Mode : </p>
                           <Switches checked={isDarkMode} handle={()=>handleDarkMode()}  />
                           </div>
-                          {/* <div className='text-xl p-3 flex md:flex-row items-center gap-1'>
+                          <div className='text-xl p-3 flex md:flex-row items-center gap-1'>
                           <Image className='w-5 rounded-full' src={itaFlag} alt='Ita-Flag'/>
                           <Switches checked={isLangSwitch} handle={()=>handleLangSwitch()} />
                           <Image className='w-5 rounded-full' src={engFlag} alt='UK-flag'/>
-                        </div>           */}
+                        </div>          
                       </div> : null }
            </div>
            
@@ -134,7 +142,7 @@ console.log(size)
            <a
           href="#contact"
           className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
-                    :  ` hidden md:inline-flex items-center ml-5 bg-slate-500 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
+                    :  ` hidden md:inline-flex items-center ml-5 bg-cyan-500 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
           Hire Me
         </a>          
 
