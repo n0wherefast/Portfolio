@@ -76,7 +76,7 @@ function Navbar() {
   
   return (
     <header  className = { isOpen?` p-3 transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
-                                  `transition-all duration-500 ease-in-out  ${isDarkMode?'md:bg-sky-950 text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
+                                  `transition-all duration-500 ease-in-out  ${isDarkMode?'md:border-b border-slate-600 backdrop-blur-lg text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
 
         <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-around items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
