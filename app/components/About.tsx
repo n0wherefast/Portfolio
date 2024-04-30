@@ -1,5 +1,5 @@
 // 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import coding from '../asset/coding.jpg'
 import { useGlobalContext } from '../context/cotext'
@@ -8,12 +8,20 @@ import {CONTEXT} from '../components/Navbar'
 
 function About() {
   const {isDarkMode,isLangSwitch}:CONTEXT = useGlobalContext()
+  const [readMore, setReadMore] = useState(false)
+
+  const HandleReadMore = () => {
+    return(
+      <button className={`hover:text-emerald-500 border-2 p-1 text-sm  'font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE</> : <>READ LESS</>}</button>
+    )
+  }
     
   return (
     <section className=' md:min-h-[90vh] md:flex ' id="about">
     <div className=" container mx-auto flex px-10 py-5 md:flex-row flex-col items-center ">
       <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      { isLangSwitch == false?
+      {
+       isLangSwitch == false ?
         <motion.h1
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
           className="title-font sm:text-6xl text-3xl mb-4 font-medium  ">
@@ -29,8 +37,9 @@ function About() {
         </motion.h1>}
         { isLangSwitch == false ?
           < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
-            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript.
+            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript. { readMore ==false? HandleReadMore() :null}
             <br />
+            { readMore == true ? <div>
             Mi concentro principalmente su sviluppo Web frontend, creando siti Web e applicazioni Web interattive e coinvolgenti.
             Sono sempre alla ricerca di nuove sfide e opportunità per ampliare le mie conoscenze e competenze.
             In futuro vorrei approfondendire le mie conoscenze in sviluppo software e sviluppo di applicazioni mobili.
@@ -40,13 +49,14 @@ function About() {
             <br />
             Amo mangiare pizza 🍕 e stare in compagnia dei miei amici.
             Sono una persona creativa e orientata al problem solving.
-            Sono sempre pronto a mettermi alla prova e ad affrontare nuove sfide.
+            Sono sempre pronto a mettermi alla prova e ad affrontare nuove sfide. { readMore &&  HandleReadMore() }</div> : null}
         </motion.p>
         :
-        < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
-        I am a self-taught web developer with a passion for JavaScript technologies.
+        < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}}
+           className={`mb-8 leading-relaxed font-medium text-lg `}>
+        I am a self-taught web developer with a passion for JavaScript technologies. { readMore== false?  HandleReadMore() : null}
         <br />
-        I mainly focus on frontend web development, creating interactive and engaging websites and web applications.
+        { readMore == true ? <div>I mainly focus on frontend web development, creating interactive and engaging websites and web applications.
         I am always looking for new challenges and opportunities to expand my knowledge and skills.
         In the future, I would like to deepen my knowledge in software development and mobile application development.
         <br />
@@ -55,7 +65,7 @@ function About() {
         <br />
         I love eating pizza 🍕 and being in the company of my friends.
         I am a creative and problem-solving oriented person.
-        I am always ready to challenge myself and take on new challenges.
+        I am always ready to challenge myself and take on new challenges. { readMore &&  HandleReadMore() } </div> : null }
 
         </motion.p>}
         <div className="flex justify-center">
