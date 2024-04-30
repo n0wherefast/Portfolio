@@ -2,6 +2,7 @@ import todo from './asset/todo_app.jpg'
 import BW from './asset/BlueWaveHolidayHouse.jpeg'
 import CV from './asset/CH.jpg'
 import IPS from './asset/IPS.webp'
+import WEA from './asset/WEA.jpeg'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js']
         
@@ -32,21 +33,29 @@ export const projects = [
         link: "https://cortese-home-next-va8g.vercel.app/",
       },
     {
-        title: "React Reserve",
-        subtitle: "MERN Stack",
+        title: "React Weather App",
+        subtitle: "React ,API and Hooks ",
         description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-          image: todo,
-        link: "",
+          "App del meteo realizzata in React che consente di visualizzare le condizioni attuali e previste per una determinata località.Utilizza un'API per recuperare i dati e li visualizza in una UI .",
+          image: WEA,
+        link: "https://n0wherefast.github.io/React-Weather-App/",
       },
-      {
-        title: "React Tracks",
-        subtitle: "React and Python",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-          image: todo,
-        link: "",
-      },
+    // {
+    //     title: "React Reserve",
+    //     subtitle: "MERN Stack",
+    //     description:
+    //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+    //       image: todo,
+    //     link: "",
+    //   },
+      // {
+      //   title: "React Tracks",
+      //   subtitle: "React and Python",
+      //   description:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+      //     image: todo,
+      //   link: "",
+      // },
       {
         title: "DevChat",
         subtitle: "React and Firebase",

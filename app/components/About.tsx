@@ -18,8 +18,8 @@ function About() {
     
   return (
     <section className=' md:min-h-[90vh] md:flex ' id="about">
-    <div className=" container mx-auto flex px-10 py-5 md:flex-row flex-col items-center ">
-      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+    <div className=" container mx-auto flex px-10 py-2 md:flex-row flex-col items-center ">
+      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-10 md:mb-0 items-center text-center">
       {
        isLangSwitch == false ?
         <motion.h1
@@ -31,13 +31,13 @@ function About() {
         :
         <motion.h1
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-          className="title-font sm:text-6xl text-3xl mb-4 font-medium ">
+          className="title-font sm:text-6xl text-3xl mb-2 font-medium ">
           Hi, I&apos;m Alessio.
           <br className="hidden lg:inline-block " />I love to build apps. And Eating Pizza
         </motion.h1>}
         { isLangSwitch == false ?
           < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
-            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript. { readMore ==false? HandleReadMore() :null}
+            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript. { readMore == false? HandleReadMore() :null}
             <br />
             { readMore == true ? <div>
             Mi concentro principalmente su sviluppo Web frontend, creando siti Web e applicazioni Web interattive e coinvolgenti.
