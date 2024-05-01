@@ -54,8 +54,8 @@ function Contacts() {
                 ADDRESS
               </h2>
               <p className="mt-1">
-                97 Warren St. <br />
-                New York, NY 10007
+                
+                Aci Castello, CT 95021
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -63,12 +63,12 @@ function Contacts() {
                 EMAIL
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                reedbarger@email.com
+                ale120789@gemail.com
               </a>
               <h2 className="title-font font-semibold  tracking-widest text-xs mt-4">
                 PHONE
               </h2>
-              <p className="leading-relaxed">123-456-7890</p>
+              <p className="leading-relaxed">347-7934906</p>
             </div>
           </div>
         </div>

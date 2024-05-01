@@ -12,7 +12,7 @@ export const projects = [
         title: "Italian Pizza Sydney",
         subtitle: "Next,js Application ",
         description:
-          "Sito Web sviluppato per Blue Wave Holiday House utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
+          "Sito Web realizzato per Italian Pizza Sydney utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
           image: IPS,
         link: "https://www.bluewaveholidayhouse.com/",
       },
