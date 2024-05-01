@@ -5,7 +5,7 @@ import coding from '../asset/coding.jpg'
 import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 import {CONTEXT} from '../components/Navbar'
-import { LuArrowUpRight, LuArrowDownRight, LuArrowDownLeft } from "react-icons/lu";
+import { LuArrowUpRight, LuArrowDownLeft } from "react-icons/lu";
 
 
 function About() {
@@ -14,7 +14,7 @@ function About() {
 
   const HandleReadMore = () => {
     return(
-      <button className={`flex gap-1 hover:text-emerald-500  p-1 text-sm font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE <LuArrowUpRight size={18} /></> : <>READ LESS <LuArrowDownLeft/> </>}</button>
+      <button className={`flex gap-1 w-full justify-center md:justify-start hover:text-emerald-500 p-1 text-sm font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE <LuArrowUpRight size={18} /></> : <>READ LESS <LuArrowDownLeft/> </>}</button>
     )
   }
     
@@ -39,7 +39,7 @@ function About() {
         </motion.h1>}
         { isLangSwitch == false ?
           < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
-            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript. { readMore == false? HandleReadMore() :null}
+            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript.{ readMore == false? HandleReadMore() :null}
             <br />
             { readMore == true ? <div>
             Mi concentro principalmente su sviluppo Web frontend, creando siti Web e applicazioni Web interattive e coinvolgenti.
