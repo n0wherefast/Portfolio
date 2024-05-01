@@ -5,6 +5,8 @@ import coding from '../asset/coding.jpg'
 import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 import {CONTEXT} from '../components/Navbar'
+import { LuArrowUpRight, LuArrowDownRight, LuArrowDownLeft } from "react-icons/lu";
+
 
 function About() {
   const {isDarkMode,isLangSwitch}:CONTEXT = useGlobalContext()
@@ -12,7 +14,7 @@ function About() {
 
   const HandleReadMore = () => {
     return(
-      <button className={`hover:text-emerald-500 border-2 p-1 text-sm  'font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE</> : <>READ LESS</>}</button>
+      <button className={`flex gap-1 hover:text-emerald-500  p-1 text-sm font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE <LuArrowUpRight size={18} /></> : <>READ LESS <LuArrowDownLeft/> </>}</button>
     )
   }
     
