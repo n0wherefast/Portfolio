@@ -1,8 +1,8 @@
-import todo from './asset/todo_app.jpg'
-import BW from './asset/BlueWaveHolidayHouse.jpeg'
-import CV from './asset/CH.jpg'
+import todo from './asset/todo_app.webp'
+import BW from './asset/BlueWaveHolidayHouse.webp'
+import CV from './asset/CH.webp'
 import IPS from './asset/IPS.webp'
-import WEA from './asset/WEA.jpeg'
+import WEA from './asset/WEA.webp'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js']
         

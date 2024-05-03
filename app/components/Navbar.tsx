@@ -6,8 +6,8 @@ import {FaBars} from 'react-icons/fa'
 import {IoMdClose} from 'react-icons/io'
 import Switches from './Switch'
 import Image from 'next/image'
-import itaFlag from "../asset/italy_flags_flag_17018.png"
-import engFlag from "../asset/united_kingdom_flags_flag_17079.png"
+import itaFlag from "../asset/italy_flags_flag_17018.webp"
+import engFlag from "../asset/united_kingdom_flags_flag_17079.webp"
 import Weather from './Weather'
 import { tree } from 'next/dist/build/templates/app-page'
 

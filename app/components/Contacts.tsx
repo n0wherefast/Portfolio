@@ -2,6 +2,7 @@
 import { log } from 'console'
 import React ,{FormEvent, useState}from 'react'
 import { useGlobalContext } from '../context/cotext'
+import { FaInstagram,FaLinkedinIn,FaWhatsapp } from 'react-icons/fa'
 
 // class netlify extends HTMLAttribute {
 //   constructor() {
@@ -132,6 +133,12 @@ function Contacts() {
           
         </form>
       </div>
+      {/* <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Social</h1> */}
+       <div className=' w-1/2 h-10 flex justify-between items-center m-5'>
+          <a href="https://www.instagram.com/n0where_fast_?igsh=dmd1N3Y0azk5dzVt" className=' hover:text-cyan-600'> <FaInstagram size={30}/>  </a>
+          <a href="https://www.linkedin.com/in/alessio-russo-a73720219/" className=' hover:text-cyan-600'> <FaLinkedinIn size={30}/> </a>
+          <a href="https://wa.me/qr/ZMI6ZCYXNYHII1" className=' hover:text-cyan-600'> <FaWhatsapp size={30}/> </a> 
+       </div>
     </section>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { skills } from '../data'
-import skill from '../asset/skill.jpg'
+import skill from '../asset/skill.webp'
 import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 

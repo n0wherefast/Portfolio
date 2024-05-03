@@ -1,22 +1,43 @@
 // 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import coding from '../asset/coding.jpg'
+import coding from '../asset/coding.webp'
 import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 import {CONTEXT} from '../components/Navbar'
 import { LuArrowUpRight, LuArrowDownLeft } from "react-icons/lu";
+import { Span } from 'next/dist/trace'
+import { icons } from 'react-icons'
 
 
 function About() {
   const {isDarkMode,isLangSwitch}:CONTEXT = useGlobalContext()
   const [readMore, setReadMore] = useState(false)
+  const [icon,setIcon] = useState('')
 
   const HandleReadMore = () => {
     return(
       <button className={`flex gap-1 w-full justify-center md:justify-start hover:text-emerald-500 p-1 text-sm font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE <LuArrowUpRight size={18} /></> : <>READ LESS <LuArrowDownLeft/> </>}</button>
     )
   }
+ 
+ useEffect(()=>{
+  const random  = () =>  Math.floor(Math.random()*4) 
+
+  
+
+        switch(random()){
+      case 0 : setIcon("🌊" ) 
+      break;
+      case 1 : setIcon("🍕" )  
+      break;
+      case 2 :  setIcon("🏄" )
+      break;
+      case 3 : setIcon("🤖" )
+      break; 
+    }  
+ },[])
+    
     
   return (
     <section className=' md:min-h-[90vh] md:flex ' id="about">
@@ -28,14 +49,14 @@ function About() {
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
           className="title-font sm:text-6xl text-3xl mb-4 font-medium  ">
           Ciao, Sono Alessio.
-          <br className="hidden lg:inline-block " />Mi piace Sviluppare Applicazioni. E mangiare Pizza
+          <br className="hidden lg:inline-block " />Mi piace Sviluppare Applicazioni. E mangiare Pizza <span className=' animate-bounce'>{icon}</span>
         </motion.h1>
         :
         <motion.h1
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
           className="title-font sm:text-6xl text-3xl mb-2 font-medium ">
           Hi, I&apos;m Alessio.
-          <br className="hidden lg:inline-block " />I love to build apps. And Eating Pizza
+          <br className="hidden lg:inline-block " />I love to build apps. And Eating Pizza <span className=' animate-bounce'>{icon}</span>
         </motion.h1>}
         { isLangSwitch == false ?
           < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
