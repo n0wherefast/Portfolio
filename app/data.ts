@@ -3,6 +3,7 @@ import BW from './asset/BlueWaveHolidayHouse.webp'
 import CV from './asset/CH.webp'
 import IPS from './asset/IPS.webp'
 import WEA from './asset/WEA.webp'
+import GO from './asset/google.webp'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js']
         
@@ -40,6 +41,14 @@ export const projects = [
           image: WEA,
         link: "https://n0wherefast.github.io/React-Weather-App/",
       },
+    {
+        title: "Google Clone HomePage",
+        subtitle: "Next.js,Firebase,TypeScript",
+        description:
+          "App clone della home page di google con barra di ricerca con previsione del testo e autenticazione tramite google",
+          image: GO,
+        link: "https://google-clone-next-js-beta.vercel.app/",
+      },
     // {
     //     title: "React Reserve",
     //     subtitle: "MERN Stack",
@@ -56,20 +65,20 @@ export const projects = [
     //     image: todo,
     //   link: "",
       // },
-      {
-        title: "DevChat",
-        subtitle: "React and Firebase",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-          image: todo,
-        link: "",
-      },
-      {
-        title: "Epic Todo App",
-        subtitle: "React Hooks",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: todo,
-        link: "",
-      },
+      // {
+      //   title: "DevChat",
+      //   subtitle: "React and Firebase",
+      //   description:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+      //     image: todo,
+      //   link: "",
+      // },
+      // {
+      //   title: "Epic Todo App",
+      //   subtitle: "React Hooks",
+      //   description:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+      //   image: todo,
+      //   link: "",
+      // },
     ];
