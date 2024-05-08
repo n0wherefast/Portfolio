@@ -64,7 +64,7 @@ function Contacts() {
                 EMAIL
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                ale120789@gemail.com
+                ale120789@gmail.com
               </a>
               <h2 className="title-font font-semibold  tracking-widest text-xs mt-4">
                 PHONE
