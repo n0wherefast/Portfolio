@@ -111,6 +111,8 @@ function Contacts() {
               className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
             />
           </div>
+
+          
           <div className="relative mb-4">
             <label
               htmlFor="message"
@@ -124,6 +126,8 @@ function Contacts() {
               className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
             />
           </div>
+
+
           <div className='flex items-center justify-center w-full'>
               <button type='submit'
                       className= {`relative flex h-[50px] w-80 text-lg items-center justify-center overflow-hidden ${isDarkMode?` bg-slate-900`:`bg-slate-300`} shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-green-600 before:duration-500 before:ease-out hover:before:h-full hover:before:w-96`} >
@@ -132,6 +136,7 @@ function Contacts() {
           </div>
           
         </form>
+
       </div>
       {/* <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Social</h1> */}
        <div className=' w-1/2 h-10 flex justify-between items-center m-5'>
