@@ -1,4 +1,3 @@
-// 'use client'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import coding from '../asset/coding.webp'
@@ -6,8 +5,6 @@ import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 import {CONTEXT} from '../components/Navbar'
 import { LuArrowUpRight, LuArrowDownLeft } from "react-icons/lu";
-import { Span } from 'next/dist/trace'
-import { icons } from 'react-icons'
 
 
 function About() {

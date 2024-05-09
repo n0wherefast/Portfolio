@@ -2,7 +2,8 @@
 import { log } from 'console'
 import React ,{FormEvent, useState}from 'react'
 import { useGlobalContext } from '../context/cotext'
-import { FaInstagram,FaLinkedinIn,FaWhatsapp } from 'react-icons/fa'
+import { FaInstagram,FaLinkedinIn,FaWhatsapp,FaGithub } from 'react-icons/fa'
+import Link from 'next/link'
 
 // class netlify extends HTMLAttribute {
 //   constructor() {
@@ -35,7 +36,6 @@ function Contacts() {
     .catch((error) => alert(error));
   }
 
-
   return (
     <section id="contact" className="relative mt-[8rem] flex flex-col justify-center items-center">
       <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Send me a message!</h1>
@@ -47,7 +47,7 @@ function Contacts() {
             title="map"
             className="absolute inset-0"
             style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.420516201429!2d15.127700611969189!3d37.54515522523635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313fb7f69fe6e15%3A0x70d954bfd5c3a1eb!2sVia%20Firenze%2C%2024%2C%2095021%20Aci%20Castello%20CT!5e0!3m2!1sit!2sit!4v1698014771968!5m2!1sit!2sit"   
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2315916083!2d15.163503676406021!3d37.573163923747174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313fbd1e4d62a1d%3A0xa930e3774f003ef0!2sVia%20Livorno%2C%20121%2C%2095021%20Aci%20Castello%20CT!5e0!3m2!1sit!2sit!4v1715179051679!5m2!1sit!2sit"
            />
           <div className= {`${isDarkMode?`bg-gray-900`: `bg-slate-300`} relative flex flex-wrap py-6 rounded shadow-md`} >
             <div className="lg:w-1/2 px-6">
@@ -135,9 +135,11 @@ function Contacts() {
       </div>
       {/* <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Social</h1> */}
        <div className=' w-1/2 h-10 flex justify-between items-center m-5'>
-          <a href="https://www.instagram.com/n0where_fast_?igsh=dmd1N3Y0azk5dzVt" className=' hover:text-cyan-600'> <FaInstagram size={30}/>  </a>
-          <a href="https://www.linkedin.com/in/alessio-russo-a73720219/" className=' hover:text-cyan-600'> <FaLinkedinIn size={30}/> </a>
-          <a href="https://wa.me/qr/ZMI6ZCYXNYHII1" className=' hover:text-cyan-600'> <FaWhatsapp size={30}/> </a> 
+          <Link href="https://www.instagram.com/n0where_fast_?igsh=dmd1N3Y0azk5dzVt" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaInstagram size={30}/>  </Link>
+          <Link href="https://www.linkedin.com/in/alessio-russo-a73720219/" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaLinkedinIn size={30}/> </Link>
+          <Link href="https://wa.me/qr/ZMI6ZCYXNYHII1" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaWhatsapp size={30}/> </Link> 
+          <Link href="https://github.com/n0wherefast" className=' hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaGithub size={30}/> </Link> 
+          
        </div>
     </section>
   )

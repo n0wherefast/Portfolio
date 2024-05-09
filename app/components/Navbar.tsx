@@ -10,6 +10,7 @@ import itaFlag from "../asset/italy_flags_flag_17018.webp"
 import engFlag from "../asset/united_kingdom_flags_flag_17079.webp"
 import Weather from './Weather'
 import { tree } from 'next/dist/build/templates/app-page'
+import Link from 'next/link'
 
 export interface CONTEXT {
   isDarkMode?:boolean,
@@ -83,12 +84,12 @@ function Navbar() {
                 
         <div className='flex flex-row w-full md:w-auto justify-between items-center m-2 md:p-0'>
                 <p className="title-font font-medium md:mb-0">
-                  <a href="/" onMouseOver={()=> setIsNameChanged(!isNameChanged)} onMouseLeave={()=>setIsNameChanged(!isNameChanged)} className={isOpen? `ml-3 text-3xl md:text-xl `:`ml-3 text-2xl`}>
+                  <Link href="/" onMouseOver={()=> setIsNameChanged(!isNameChanged)} onMouseLeave={()=>setIsNameChanged(!isNameChanged)} className={isOpen? `ml-3 text-3xl md:text-xl `:`ml-3 text-2xl`}>
                     {isNameChanged === true ? "Alessio Russo" : "Web Dev Portfolio" }  
-                  </a>
+                  </Link>
                 </p>
                 
-                <button className= {isOpen? `  flex rotate-180 md:hidden text-sky-500 transition-all ease-in duration-200`:` hover:bg-sky-900 p-2 rounded-full rotate-0 flex md:hidden text-white transition-all ease-in`  }
+                <button className= {isOpen? `  flex rotate-180 md:hidden text-sky-500 transition-all ease-in duration-200`:` hover:bg-sky-900 p-2 rounded-full rotate-0 flex md:hidden text-white transition-all ease-in `  }
                         onClick={()=>(setIsOpen(!isOpen) ,setIsClick(false))}
                 >
                 { isOpen ? <IoMdClose size={30} /> :   <FaBars size={25} />}
@@ -97,15 +98,18 @@ function Navbar() {
         <nav  className={isOpen? ` gap-2  w-full md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	flex  flex-col md:flex-row items-start text-base justify-start  ` :
                                  ` hidden  md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	md:flex  items-center text-base justify-center`}>
              {/* <hr /> <Weather/>    <hr />                 */}
-          <a href="#projects" className=" text-3xl md:text-xl  mr-5 py-1 px-3  rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
+          <Link href="#projects" className=" text-3xl md:text-xl  mr-5 py-1 px-3  rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
              <span>Past Work</span>
-          </a>
-          <a href="#skills" className=" text-3xl md:text-xl mr-5 py-1 px-3 transition-all ease-in rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
+          </Link>
+          <Link href="#skills" className=" text-3xl md:text-xl mr-5 py-1 px-3 transition-all ease-in rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
              <span>Skills</span>
-          </a>
-          {/* <a href="#testimonials" className="mr-5 hover:text-white">
+          </Link>
+          <Link className="" href="/Alessio_Russo_Résumé.pdf" locale={false} rel="noopener noreferrer" target="_blank" aria-label="Downlod Resume" >
+             <button className="p-5 text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all "> Downlod Resume </button>
+          </Link>
+          {/* <Link href="#testimonials" className="mr-5 hover:text-white">
             Testimonials
-          </a> */}
+          </Link> */}
           
         </nav>
          
@@ -139,12 +143,12 @@ function Navbar() {
               <span className="relative z-10">{ isMenu? menuSettings():null}</span>
           </div> 
            : null } 
-           <a
+           <Link
           href="#contact"
           className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
                     :  ` hidden md:inline-flex items-center ml-5 bg-cyan-500 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
           Hire Me
-        </a>          
+        </Link>          
 
         </div>
         

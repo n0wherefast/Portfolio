@@ -1,12 +1,10 @@
 'use client'
-import Image from 'next/image'
 import About from './components/About'
 import Contact from "./components/Contacts";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skill from "./components/Skill";
 import { useGlobalContext } from './context/cotext';
-import Weather from './components/Weather';
 
 export default function Home() {
   const {isDarkMode}:any = useGlobalContext()
