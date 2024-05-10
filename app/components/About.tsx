@@ -74,7 +74,7 @@ function About() {
         :
         < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}}
            className={`mb-8 leading-relaxed font-medium text-lg `}>
-        I am a self-taught web developer with a passion for JavaScript technologies. (on <a href='https://www.theodinproject.com/'>TOP</a>) { readMore== false?  HandleReadMore() : null}
+        I am a self-taught web developer with a passion for JavaScript technologies. { readMore== false?  HandleReadMore() : null}
         <br />
         { readMore == true ? <div>I mainly focus on frontend web development, creating interactive and engaging websites and web applications.
         I am always looking for new challenges and opportunities to expand my knowledge and skills.

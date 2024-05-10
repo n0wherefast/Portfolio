@@ -29,7 +29,7 @@ function Navbar() {
   const {isDarkMode,handleDarkMode,isLangSwitch,handleLangSwitch}:CONTEXT = useGlobalContext()
   const [isMenu , setIsMenu] = useState<boolean>()
   const [isNameChanged,setIsNameChanged] = useState(true)
-  const  [size,setSize] =useState(0)
+  const  [size,setSize] =useState(800)
  
 
   // const handleLangSwitch = () => {
@@ -92,7 +92,7 @@ function Navbar() {
                 <button className= {isOpen? `  flex rotate-180 md:hidden text-sky-500 transition-all ease-in duration-200`:` hover:bg-sky-900 p-2 rounded-full rotate-0 flex md:hidden text-white transition-all ease-in `  }
                         onClick={()=>(setIsOpen(!isOpen) ,setIsClick(false))}
                 >
-                { isOpen ? <IoMdClose size={30} /> :   <FaBars size={25} />}
+                { isOpen ? <IoMdClose size={30} /> :   <FaBars size={25} />}  
                 </button>
         </div>
         <nav  className={isOpen? ` gap-2  w-full md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	flex  flex-col md:flex-row items-start text-base justify-start  ` :
