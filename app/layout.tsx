@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
+      {/* <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
       <input autoComplete='on' type="text" name="name" />
       <input autoComplete='on' type="email" name="email" />
       <textarea name="message"></textarea>
-      </form>
+      </form> */}
       <AppProvider>
         {children}
       </AppProvider>

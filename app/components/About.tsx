@@ -103,14 +103,14 @@ function About() {
         </div>
       </div>
       <motion.div initial={{opacity:0 ,x:10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} 
-          className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex justify-center   ">
-            <div className=' bg-gradient-to-r from-slate-300 via-indigo-800 to-cyan-800 w-full h-full mix-blend-soft-light rounded-full animate-spinSlow    absolute '> </div>
+          className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex justify-center ">
+            <div className=' bg-gradient-to-r from-slate-100 via-indigo-800 to-cyan-800 w-full h-full mix-blend-soft-light rounded-full animate-spinSlow absolute  '> </div>
         <Image 
         className="object-cover object-center rounded-full"
         priority
           alt="hero"
-          width={510}
-          height={510}
+          width={515}
+          height={515}
           src= {coding}/>        
       </motion.div>
     </div>

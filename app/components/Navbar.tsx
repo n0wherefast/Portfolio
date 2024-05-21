@@ -61,7 +61,7 @@ function Navbar() {
 
   const  menuSettings = () =>{
     return(
-                        <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 `}>
+                        <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 hover:scale-125 hover:text-amber-500 transition-all `}>
                           <button 
                           // className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full"
                           >
@@ -79,7 +79,7 @@ function Navbar() {
     <header  className = { isOpen?` p-3 transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
                                   `transition-all duration-500 ease-in-out  ${isDarkMode?'md:border-b border-slate-600 backdrop-blur-lg text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
 
-        <div className={isOpen ? ` h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-around items-center md:justify-start` :
+        <div className={isOpen ? ` min-h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-around items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
                 
         <div className='flex flex-row w-full md:w-auto justify-between items-center m-2 md:p-0'>
