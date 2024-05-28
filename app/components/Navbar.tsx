@@ -145,7 +145,7 @@ function Navbar() {
            : null } 
            <Link
           href="#contact"
-          className= {isOpen? `md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
+          className= {isOpen? `md:inline-flex items-center ${!isDarkMode&& 'text-white' } bg-gray-700 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-base mt-4 md:mt-0` 
                     :  ` hidden md:inline-flex items-center ml-5 bg-cyan-500 border-0 py-1 px-3 transition-all ease-in focus:outline-none hover:bg-red-700 rounded text-lg mt-4 md:mt-0 hover:animate-pulse ` }>
           Hire Me
         </Link>          

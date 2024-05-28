@@ -15,7 +15,7 @@ export const projects = [
         description:
           "Sito Web realizzato per Italian Pizza Sydney utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
           image: IPS,
-        link: "https://www.bluewaveholidayhouse.com/",
+        link: "https://italianpizzasydney.com.au/",
       },
     {
         title: "Blue Wave Holiday House",
