@@ -5,7 +5,7 @@ import IPS from './asset/IPS.webp'
 import WEA from './asset/WEA.webp'
 import GO from './asset/google.webp'
 
-export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js']
+export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail']
         
 
 export const projects = [
