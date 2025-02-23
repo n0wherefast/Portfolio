@@ -105,7 +105,7 @@ function Navbar() {
              <span>Skills</span>
           </Link>
           <Link className="" href="/Alessio_Russo_Resume.pdf" locale={false} rel="noopener noreferrer" target="_blank" aria-label="Downlod Resume" >
-             <button className="p-5 text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all "> Downlod Resume </button>
+             <button className="p-5 text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all "> Download Resume </button>
           </Link>
           {/* <Link href="#testimonials" className="mr-5 hover:text-white">
             Testimonials
