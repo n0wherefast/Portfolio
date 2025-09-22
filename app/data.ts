@@ -34,14 +34,14 @@ export const projects = [
           image: CV,
         link: "https://cortese-home-next-va8g.vercel.app/",
       },
-    {
-        title: "React Weather App",
-        subtitle: "React ,API and Hooks ",
-        description:
-          "App del meteo realizzata in React che consente di visualizzare le condizioni attuali e previste per una determinata località.Utilizza un'API per recuperare i dati e li visualizza in una UI .",
-          image: WEA,
-        link: "https://n0wherefast.github.io/React-Weather-App/",
-      },
+    // {
+    //     title: "React Weather App",
+    //     subtitle: "React ,API and Hooks ",
+    //     description:
+    //       "App del meteo realizzata in React che consente di visualizzare le condizioni attuali e previste per una determinata località.Utilizza un'API per recuperare i dati e li visualizza in una UI .",
+    //       image: WEA,
+    //     link: "https://n0wherefast.github.io/React-Weather-App/",
+    //   },
     {
         title: "Google Clone HomePage",
         subtitle: "Next.js,Firebase,TypeScript",
