@@ -7,7 +7,7 @@ import GO from './asset/google.webp'
 import CHAT from './asset/CHAT.webp'
 import HOUSE from './asset/housing.png'
 
-export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail']
+export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail','Python','Pandas','Data','Machine Learning','scikit-learn','Seaborn','AI']
         
 
 export const projects = [
