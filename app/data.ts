@@ -5,6 +5,7 @@ import IPS from './asset/IPS.webp'
 import WEA from './asset/WEA.webp'
 import GO from './asset/google.webp'
 import CHAT from './asset/CHAT.webp'
+import HOUSE from './asset/housing.png'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail']
         
@@ -73,6 +74,14 @@ export const projects = [
           "Chat App realizzata in Next.js e Firebase dove è possibile scegliere tre chat predefinite o crearne delle nuove.È presente un crittografia end to end basata sul caesar cipher ",
           image: CHAT,
         link: "https://next-chat-app-blue.vercel.app",
+      },
+      {
+        title: "California Housing ",
+        subtitle: "next.js Flask Machine Learning",
+        description:
+         "Web app che utilizza un modello Machine Learning allenato sul dataset California Housing per stimare i prezzi medi basandosi su dei parametri ",
+          image: HOUSE,
+        link: "https://california-housing-price-predictor.vercel.app/",
       },
       // {
       //   title: "Epic Todo App",
