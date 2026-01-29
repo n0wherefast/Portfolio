@@ -109,7 +109,7 @@ function Navbar() {
           <Link href="#skills" className=" text-3xl md:text-xl mr-5 py-1 px-3 transition-all ease-in rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
              <span>Skills</span>
           </Link>
-          <Link className="" href="/Alessio_Russo_Resume.pdf" locale={false} rel="noopener noreferrer" target="_blank" aria-label="Downlod Resume" >
+          <Link className="" href="/Alessio_Russo_Resume2026.pdf" locale={false} rel="noopener noreferrer" target="_blank" aria-label="Downlod Resume" >
              <button className="p-1 px-2 rounded-lg text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all hover:bg-slate-100  bg-cyan-400"> Resume </button>
           </Link>
           {/* <Link href="#testimonials" className="mr-5 hover:text-white">
