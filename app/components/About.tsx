@@ -3,12 +3,12 @@ import Image from 'next/image'
 import coding from '../asset/coding.webp'
 import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
-import {CONTEXT} from '../components/Navbar'
+// import {CONTEXT} from '../components/Navbar'
 import { LuArrowUpRight, LuArrowDownLeft } from "react-icons/lu";
 
 
 function About() {
-  const {isDarkMode,isLangSwitch}:CONTEXT = useGlobalContext()
+  const { isDarkMode, isLangSwitch } = useGlobalContext()
   const [readMore, setReadMore] = useState(false)
   const [icon,setIcon] = useState('')
 
@@ -37,26 +37,26 @@ function About() {
     
     
   return (
-    <section className=' md:min-h-[90vh] md:flex ' id="about">
-    <div className=" container mx-auto flex px-10 py-2 md:flex-row flex-col items-center ">
+    <section className='min-h-screen mt-24 md:mt-0 md:flex ' id="about">
+    <div className=" container mx-auto flex px-10 md:py-2 md:flex-row flex-col items-center ">
       <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-10 md:mb-0 items-center text-center">
       {
        isLangSwitch == false ?
         <motion.h1
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-          className="title-font sm:text-6xl text-3xl mb-4 font-medium  ">
+          className="title-font sm:text-6xl text-3xl md:mb-4 font-medium  ">
           Ciao, Sono Alessio.
           <br className="hidden lg:inline-block " />Mi piace Sviluppare Applicazioni. E mangiare Pizza <span className=' animate-bounce'>{icon}</span>
         </motion.h1>
         :
         <motion.h1
           initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-          className="title-font sm:text-6xl text-3xl mb-2 font-medium ">
+          className="title-font sm:text-6xl text-3xl md:mb-2 font-medium ">
           Hi, I&apos;m Alessio.
           <br className="hidden lg:inline-block " />I love to build apps. And Eating Pizza <span className=' animate-bounce'>{icon}</span>
         </motion.h1>}
         { isLangSwitch == false ?
-          < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className="mb-8 leading-relaxed font-medium text-lg ">
+          < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className=" md:mb-8 leading-relaxed font-medium text-lg ">
             Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript.{ readMore == false? HandleReadMore() :null}
             <br />
             { readMore == true ? <div>
@@ -73,7 +73,7 @@ function About() {
         </motion.p>
         :
         < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}}
-           className={`mb-8 leading-relaxed font-medium text-lg `}>
+           className={`md:mb-8 leading-relaxed font-medium text-lg `}>
         I am a self-taught web developer with a passion for JavaScript technologies. { readMore== false?  HandleReadMore() : null}
         <br />
         { readMore == true ? <div>I mainly focus on frontend web development, creating interactive and engaging websites and web applications.
@@ -108,7 +108,7 @@ function About() {
         <Image 
         className="object-cover object-center rounded-full"
         priority
-          alt="hero"
+          alt="Alessio coding portrait"
           width={515}
           height={515}
           src= {coding}/>        

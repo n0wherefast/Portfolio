@@ -7,23 +7,31 @@ import GO from './asset/google.webp'
 import CHAT from './asset/CHAT.webp'
 import HOUSE from './asset/housing.png'
 
-export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail','Python','Pandas','Data','Machine Learning','scikit-learn','Seaborn','AI']
+export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail','Python','Pandas','Data','Machine Learning','scikit-learn','Seaborn','AI','lagngchain','OpenAI API','FastAPI','Flask','REST API','AWS S3','Rag','Docker'];
         
 
 export const projects = [
+    // {
+    //     title: "Italian Pizza Sydney",
+    //     subtitle: "Next,js Application ",
+    //     description:
+    //       "Sito Web realizzato per Italian Pizza Sydney utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
+    //       image: IPS,
+    //     link: "https://italianpizzasydney.com.au/",
+    //   },
     {
-        title: "Italian Pizza Sydney",
+        title: "Italian Pizza Catering",
         subtitle: "Next,js Application ",
         description:
-          "Sito Web realizzato per Italian Pizza Sydney utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
+        "Sito Web realizzato per Italian Pizza Catering. Stack e Features: Next.js,Tailwind, ,framer Motion,Google Tag Manager,SEO Optimization,",
           image: IPS,
-        link: "https://italianpizzasydney.com.au/",
+        link: "https://italianpizzacatering.com.au/",
       },
     {
         title: "Blue Wave Holiday House",
         subtitle: "Next,js Application ",
         description:
-          "Sito Web sviluppato per Blue Wave Holiday House utilizando: Next.js,Styled Component, Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion",
+          "Sito Web sviluppato per Blue Wave Holiday House. Stack e Features: Next.js,Tailwind, Redux Toolkit, Dashboard,framer Motion,SEO Optimization",
           image: BW,
         link: "https://www.bluewaveholidayhouse.com/",
       },
@@ -31,7 +39,7 @@ export const projects = [
         title: "Cortese Home",
         subtitle: "Next,js Application ",
         description:
-          "Sito Web sviluppato per Cortese Home utilizando: Next.js,Tailwind, Redux Toolkit,framer Motion",
+          "Sito Web sviluppato per Cortese Home. Stack e Features: Next.js,Tailwind, Redux Toolkit,framer Motion",
           image: CV,
         link: "https://cortese-home-next-va8g.vercel.app/",
       },

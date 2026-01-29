@@ -9,14 +9,37 @@ export const metadata: Metadata = {
   title:"Alessio Russo Portfolio",
   description: 'web developer portfolio',
   icons:{
-    icon:"/favicon-32x32.png",
-    apple:"/apple-touch-icon.png",
-    shortcut:"/apple-touch-icon.png",
+    icon:"/favicon-32x32.svg",
+    apple:"/apple-touch-icon.svg",
+    shortcut:"/favicon.ico",
   },
   other:{
     rel:'/favicon.ico'
   },
-  manifest:"/site.webmanifest"
+  manifest:"/site.webmanifest",
+  openGraph: {
+    title: 'Alessio Russo Portfolio',
+    description: 'Web developer portfolio — Alessio Russo',
+    url: '/',
+    siteName: 'Alessio Russo',
+    images: [
+      {
+        url: '/favicon-32x32.svg',
+        width: 600,
+        height: 315,
+        alt: 'Alessio Russo Portfolio'
+      }
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alessio Russo Portfolio',
+    description: 'Web developer portfolio — Alessio Russo',
+    images: ['/favicon-32x32.svg']
+  }
+  ,viewport: 'width=device-width, initial-scale=1',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000')
 }
 
 export default function RootLayout({
@@ -27,11 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      {/* <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
-      <input autoComplete='on' type="text" name="name" />
-      <input autoComplete='on' type="email" name="email" />
-      <textarea name="message"></textarea>
-      </form> */}
+      
       <AppProvider>
         {children}
       </AppProvider>

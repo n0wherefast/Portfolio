@@ -6,7 +6,7 @@ import { useGlobalContext } from '../context/cotext'
 import {motion} from 'framer-motion'
 
 function Skill() {
-  const {isDarkMode}:any = useGlobalContext()
+  const { isDarkMode } = useGlobalContext()
   return (
     <section id="skills" className='' >
     <div className="container px-5 py-10 mx-auto">
@@ -15,7 +15,7 @@ function Skill() {
         < motion.div initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}} className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 m-5">
         <Image 
         className="object-cover object-center rounded-full"
-          alt="hero"
+          alt="Skill illustration"
           width={500}
           height={500}
           src= {skill}/>        

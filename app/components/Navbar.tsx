@@ -11,6 +11,7 @@ import engFlag from "../asset/united_kingdom_flags_flag_17079.webp"
 import Weather from './Weather'
 import { tree } from 'next/dist/build/templates/app-page'
 import Link from 'next/link'
+import TopBar from './TopBar'
 
 export interface CONTEXT {
   isDarkMode?:boolean,
@@ -61,7 +62,7 @@ function Navbar() {
 
   const  menuSettings = () =>{
     return(
-                        <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center md:border-0  text-xl mt-4 md:mt-0 hover:scale-125 hover:text-amber-500 transition-all `}>
+                        <div  onClick={()=>setIsClick(!isClick)} className= {` cursor-pointer flex  md:inline-flex md:items-center  text-xl mt-4 md:mt-0 hover:scale-125 hover:text-amber-500 transition-all `}>
                           <button 
                           // className=" flex items-center justify-center relative h-[30px] w-24 overflow-hidden rounded-xl px-3 transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all ease-in before:duration-700 hover:text-white hover:before:w-full"
                           >
@@ -76,8 +77,12 @@ function Navbar() {
 
   
   return (
-    <header  className = { isOpen?` p-3 transition-all duration-500 ease-in-out ${isDarkMode? 'bg-sky-950 text-white':'bg-slate-100'}   md:sticky top-0 z-10  ` : 
-                                  `transition-all duration-500 ease-in-out  ${isDarkMode?'md:border-b border-slate-600 backdrop-blur-lg text-white' : 'md:bg-slate-100 text-white md:text-black '} md:sticky top-0 z-10`}>
+    <>   
+    <header className={ isOpen
+      ? `fixed top-0 left-0 right-0 w-full p-3 transition-all duration-500 ease-in-out ${isDarkMode ? 'bg-sky-950 text-white' : 'bg-slate-100 text-black'} z-50`
+      : `fixed top-0 left-0 right-0 w-full   transition-all duration-500 ease-in-out ${isDarkMode ? 'backdrop-blur-lg text-white' : 'bg-slate-100 text-black'} z-40`
+    }>
+      
 
         <div className={isOpen ? ` min-h-96 transition-all ease-in-out duration-300  container mx-auto flex  p-3 flex-col  md:flex-row justify-around items-center md:justify-start` :
                                  ` h-24 transition-all ease-in-out duration-200  container mx-auto flex  p-3 flex-col  md:flex-row justify-between items-center md:justify-start`}>
@@ -95,8 +100,8 @@ function Navbar() {
                 { isOpen ? <IoMdClose size={30} /> :   <FaBars size={25} />}  
                 </button>
         </div>
-        <nav  className={isOpen? ` gap-2  w-full md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	flex  flex-col md:flex-row items-start text-base justify-start  ` :
-                                 ` hidden  md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-600	md:flex  items-center text-base justify-center`}>
+        <nav  className={isOpen? ` gap-2  w-full md:mr-auto md:ml-4 md:py-1 md:pl-4 flex  flex-col md:flex-row items-start text-base justify-start  ` :
+               ` hidden  md:mr-auto md:ml-4 md:py-1 md:pl-4 md:flex  items-center text-base justify-center`}>
              {/* <hr /> <Weather/>    <hr />                 */}
           <Link href="#projects" className=" text-3xl md:text-xl  mr-5 py-1 px-3  rounded-lg hover:text-white hover:bg-sky-500 hover:animate-bounce">
              <span>Past Work</span>
@@ -105,7 +110,7 @@ function Navbar() {
              <span>Skills</span>
           </Link>
           <Link className="" href="/Alessio_Russo_Resume.pdf" locale={false} rel="noopener noreferrer" target="_blank" aria-label="Downlod Resume" >
-             <button className="p-5 text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all "> Download Resume </button>
+             <button className="p-1 px-2 rounded-lg text-xl hover:text-emerald-500 hover:scale-110 hover:font-bold transition-all hover:bg-slate-100  bg-cyan-400"> Resume </button>
           </Link>
           {/* <Link href="#testimonials" className="mr-5 hover:text-white">
             Testimonials
@@ -154,6 +159,7 @@ function Navbar() {
         
       
     </header>
+    </>
   )
 }
 

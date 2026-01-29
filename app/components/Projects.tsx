@@ -6,7 +6,7 @@ import { motion,useScroll } from 'framer-motion'
 import { useGlobalContext } from '../context/cotext'
 
 function Projects() {
-  const {isDarkMode}:any = useGlobalContext()
+  const { isDarkMode } = useGlobalContext()
   
   
   return (
@@ -29,7 +29,7 @@ function Projects() {
               className="">
               <motion.div initial={{opacity:0 ,y:-10}} transition={{delay:idx/5}} whileInView={{opacity:1,y:1}} className="flex relative md:w-[300px] md:h-[300px]">
                 <Image
-                  alt="gallery"
+                  alt={project.title}
                   className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl"
                   src={project.image}
                 />

@@ -3,38 +3,45 @@ import React ,{FormEvent, useRef, useState}from 'react'
 import { useGlobalContext } from '../context/cotext'
 import { FaInstagram,FaLinkedinIn,FaWhatsapp,FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
-import emailjs from '@emailjs/browser';
-
+import Swal from 'sweetalert2'
 
 
 function Contacts() {
-  const [name,setName] = useState('')
-  const [email,setEmail] = useState('')
-  const [message,setMessage] = useState('')
+  
   const {isDarkMode}:any = useGlobalContext()
+  const [result, setResult] = useState("");
+  
 
-  const form:any = useRef()
+  const onSubmit = async (event:any) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "c7432147-1056-4925-93e0-c9130350c67d");
 
- 
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
 
-  const handleSubmit = (e:any) =>{
-      e.preventDefault()
-    
-      emailjs.sendForm('service_8ea7hl3', 'template_jo5dp4j', form.current!, {
-        publicKey: 'VqURh7XxsIDU5Ff34',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-          // TOSTYFY
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-      e.target.reset()
-
+    const data = await response.json();
+    setResult(data.success ? "Success!" : "Error");
+    if(data.success) { 
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent',
+        text: 'Thank you for reaching out. I will get back to you soon!',
+        theme: isDarkMode ? 'dark' : 'light',
+      });
+      event.target.reset();
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Message Not Sent',
+        text: 'There was an error sending your message. Please try again later.',
+      });
+    }
   }
+
+  console.log(result)
   return (
     <section id="contact" className="relative mt-[8rem] flex flex-col justify-center items-center">
       <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Send me a message!</h1>
@@ -75,9 +82,8 @@ function Contacts() {
 
       
         <form
-          ref={form}
-          onSubmit={handleSubmit}
-          data-netlify
+          // ref={form}
+          onSubmit={onSubmit}
           name="contact"
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
         >
@@ -88,28 +94,28 @@ function Contacts() {
                 Got a question or proposal, or just want to say hello? Go ahead.
                 </p>
                 <div className="relative mb-4">
-                  <label htmlFor="name" className="leading-7 text-sm text-gray-400">
+                  <label htmlFor="name" className="leading-7 text-sm text-gray-100">
                     Name
                   </label>
                   <input
                     autoComplete='on'
                     type="text"
                     id="name"
-                    name="user_name"
-                    onChange={(e)=> setName(e.target.value)}
+                    name="name"
+                    
                     className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                   />
                 </div>
                 <div className="relative mb-4">
-                  <label htmlFor="email" className="leading-7 text-sm text-gray-400">
+                  <label htmlFor="email" className="leading-7 text-sm text-gray-100">
                     Email
                   </label>
                   <input
                     autoComplete='on'
                     type="email"
                     id="email"
-                    name="user_email"
-                    onChange={(e)=> setEmail(e.target.value)}
+                    name="email"
+                   
                     className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                   />
                 </div>
@@ -118,13 +124,13 @@ function Contacts() {
                 <div className="relative mb-4">
                   <label
                     htmlFor="message"
-                    className="leading-7 text-sm text-gray-400">
+                    className="leading-7 text-sm text-gray-100">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    onChange={(e)=> setMessage(e.target.value)}
+                    // onChange={(e)=> setMessage(e.target.value)}
                     className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                   />
                 </div>
