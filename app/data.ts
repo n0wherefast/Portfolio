@@ -6,19 +6,27 @@ import WEA from './asset/WEA.webp'
 import GO from './asset/google.webp'
 import CHAT from './asset/CHAT.webp'
 import HOUSE from './asset/housing.png'
+import SEO from './asset/SEO.png'
 
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail','Python','Pandas','Data','Machine Learning','scikit-learn','Seaborn','AI','lagngchain','OpenAI API','FastAPI','Flask','REST API','AWS S3','Rag','Docker'];
         
 
 export const projects = [
-    // {
-    //     title: "Italian Pizza Sydney",
-    //     subtitle: "Next,js Application ",
-    //     description:
-    //       "Sito Web realizzato per Italian Pizza Sydney utilizando: Next.js,SASS, React Custom Hooks,Redux Toolkit, Sanity.io CMS,Swiper.js,framer Motion,Google Tag Manager",
-    //       image: IPS,
-    //     link: "https://italianpizzasydney.com.au/",
-    //   },
+    {
+        title: "SEO Agent",
+        subtitle: "Next.js,FastApi,LangChain, RAG, AI, Web Scraping",
+        description:
+          "tool full-stack che combina web scraping avanzato, AI, RAG per scansioni automatiche in tempo reale con assistente AI conversazionale.",
+          image: SEO,
+        link: "https://github.com/n0wherefast/SeoAgentPro",
+      },{
+        title: "California Housing ",
+        subtitle: "next.js Flask Machine Learning",
+        description:
+         "Web app che utilizza un modello Machine Learning allenato sul dataset California Housing per stimare i prezzi medi basandosi su dei parametri ",
+          image: HOUSE,
+        link: "https://california-housing-price-predictor.vercel.app/",
+      },
     {
         title: "Italian Pizza Catering",
         subtitle: "Next,js Application ",
@@ -83,14 +91,7 @@ export const projects = [
           image: CHAT,
         link: "https://next-chat-app-blue.vercel.app",
       },
-      {
-        title: "California Housing ",
-        subtitle: "next.js Flask Machine Learning",
-        description:
-         "Web app che utilizza un modello Machine Learning allenato sul dataset California Housing per stimare i prezzi medi basandosi su dei parametri ",
-          image: HOUSE,
-        link: "https://california-housing-price-predictor.vercel.app/",
-      },
+      
       // {
       //   title: "Epic Todo App",
       //   subtitle: "React Hooks",
