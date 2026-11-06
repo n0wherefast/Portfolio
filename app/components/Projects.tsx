@@ -1,48 +1,92 @@
 'use client'
-import React from 'react'
-import  Image  from 'next/image'
-import  {projects} from '../data'
-import { motion,useScroll } from 'framer-motion'
-import { useGlobalContext } from '../context/cotext'
+
+import {
+  FiArrowUpRight,
+  FiCoffee,
+  FiDroplet,
+  FiHome,
+  FiMessageCircle,
+  FiSearch,
+  FiTrendingUp,
+} from 'react-icons/fi'
+import { projects } from '../data'
+
+type Project = (typeof projects)[number]
+
+function ProjectLogo({ project }: { project: Project }) {
+  let mark
+  switch (project.visual) {
+    case 'seo':
+      mark = { icon: <FiTrendingUp />, name: <>SEO <span>Agent</span></>, caption: 'AI · Search intelligence' }
+      break
+    case 'housing':
+      mark = { icon: <FiHome />, name: <>California <span>Housing</span></>, caption: 'Machine learning · Real estate' }
+      break
+    case 'catering':
+      mark = { icon: <FiCoffee />, name: <>Italian <span>Pizza</span></>, caption: 'Catering · Hospitality' }
+      break
+    case 'holiday':
+      mark = { icon: <FiDroplet />, name: <>Blue <span>Wave</span></>, caption: 'Holiday house · Sicily' }
+      break
+    case 'real-estate':
+      mark = { icon: <FiHome />, name: <>Cortese <span>Home</span></>, caption: 'Casa vacanze · Real estate' }
+      break
+    case 'search':
+      mark = { icon: <FiSearch />, name: <>Google <span>Clone</span></>, caption: 'Search · Firebase' }
+      break
+    case 'chat':
+      mark = { icon: <FiMessageCircle />, name: <>Next<span>Chat</span></>, caption: 'Messaging · Firebase' }
+      break
+    default:
+      return null
+  }
+
+  return (
+    <div className={`project-logo-panel logo-${project.visual}`} aria-hidden="true">
+      <div className="project-logo">
+        <span className="project-logo-icon">{mark.icon}</span>
+        <span className="project-logo-name">{mark.name}</span>
+        <span className="project-logo-caption">{mark.caption}</span>
+      </div>
+      <span className="project-logo-type">PROJECT / {String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
+    </div>
+  )
+}
 
 function Projects() {
-  const { isDarkMode } = useGlobalContext()
-  
-  
   return (
-    <section  className={`transition-all easy-in-out duration-300 ${isDarkMode? ` bg-gray-900 md:flex justify-center items-center md:min-h-[80vh] `: `bg-slate-300 `}`} >
-      <div className="container px-5 py-10 mx-auto text-center lg:px-10">
-        <motion.div initial={{opacity:0 ,y:0-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}} className="flex flex-col w-full mb-20">
-          {/* <CodeIcon className="mx-auto inline-block w-10 mb-4" /> */}
-          <h1 className="sm:text-6xl text-3xl font-black title-font mb-4 ">
-            Apps I&apos;ve Built
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-xl">
-          Selected work I&rsquo;ve taken on in the past.
-          </p>
-        </motion.div>
-        <div className="flex flex-wrap gap-6 items-center justify-center ">
-          {projects.map((project,idx) => (
+    <section className="section-block" id="projects">
+      <div className="section-container">
+        <div className="projects-header">
+          <div>
+            <span className="section-kicker">Selected work</span>
+            <h2 className="section-heading">Projects built with purpose.</h2>
+            <p className="section-copy">
+              A selection of web applications and products, from early concepts to production.
+            </p>
+          </div>
+          <span className="section-kicker">{String(projects.length).padStart(2, '0')} projects</span>
+        </div>
+
+        <div className="project-grid">
+          {projects.map((project) => (
             <a
               href={project.link}
-              key={idx}
-              className="">
-              <motion.div initial={{opacity:0 ,y:-10}} transition={{delay:idx/5}} whileInView={{opacity:1,y:1}} className="flex relative md:w-[300px] md:h-[300px]">
-                <Image
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl"
-                  src={project.image}
-                />
-                <div className= {`px-8 py-10 relative  w-full border-4 border-gray-800 ${isDarkMode? `bg-gray-900`: `bg-slate-300`}  opacity-0 transition-all ease-in duration-200 hover:opacity-100 rounded-2xl`} >
-                  <h2 className= {`tracking-widest text-sm title-font font-medium ${isDarkMode? `text-green-400`: `text-rose-700`} mb-1`} >
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium  mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
-                </div>
-              </motion.div>
+              key={project.title}
+              className="project-card"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} — open project`}
+            >
+              <ProjectLogo project={project} />
+              <div className="project-content">
+                <p className="project-stack">{project.subtitle}</p>
+                <h3 className="project-title">
+                  {project.title}
+                  <FiArrowUpRight aria-hidden="true" />
+                </h3>
+                <p className="project-description">{project.description}</p>
+              </div>
             </a>
           ))}
         </div>

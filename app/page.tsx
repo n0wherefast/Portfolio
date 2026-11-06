@@ -4,20 +4,23 @@ import Contact from "./components/Contacts";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skill from "./components/Skill";
-import TopBar from './components/TopBar';
 import { useGlobalContext } from './context/cotext';
 
 export default function Home() {
   const { isDarkMode } = useGlobalContext()
   return (
-    <main className={  isDarkMode?` overflow-hidden transition-all ease-in-out duration-500 bg-gradient-to-r from-slate-800 via-indigo-600 to-cyan-600 text-white` : ` text-black transition-all ease-in-out duration-500 bg-gradient-to-r from-slate-300 via-indigo-600 to-cyan-600` }>
+    <main className={`site-shell ${isDarkMode ? 'theme-dark' : 'theme-light'}`}>
       <Navbar />
       <About />
-      <br id="projects"/>
-      <TopBar />
       <Projects />
       <Skill />
       <Contact />
+      <footer className="site-footer">
+        <div className="section-container footer-inner">
+          <span>© {new Date().getFullYear()} Alessio Russo</span>
+          <span>Designed &amp; built with Next.js</span>
+        </div>
+      </footer>
     </main>
   )
 }

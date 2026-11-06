@@ -1,120 +1,102 @@
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import coding from '../asset/coding.webp'
-import { useGlobalContext } from '../context/cotext'
-import {motion} from 'framer-motion'
-// import {CONTEXT} from '../components/Navbar'
-import { LuArrowUpRight, LuArrowDownLeft } from "react-icons/lu";
+'use client'
 
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { FiArrowDownRight, FiArrowUpRight } from 'react-icons/fi'
+import { useGlobalContext } from '../context/cotext'
 
 function About() {
-  const { isDarkMode, isLangSwitch } = useGlobalContext()
+  const { isLangSwitch } = useGlobalContext()
   const [readMore, setReadMore] = useState(false)
-  const [icon,setIcon] = useState('')
 
-  const HandleReadMore = () => {
-    return(
-      <button className={`flex gap-1 w-full justify-center md:justify-start hover:text-emerald-500 p-1 text-sm font-medium `} onClick={()=>setReadMore(!readMore)}> { readMore==false? <>READ MORE <LuArrowUpRight size={18} /></> : <>READ LESS <LuArrowDownLeft/> </>}</button>
-    )
-  }
- 
- useEffect(()=>{
-  const random  = () =>  Math.floor(Math.random()*4) 
+  const introduction = isLangSwitch
+    ? 'I build thoughtful web experiences, from polished interfaces to complete applications. My work focuses on JavaScript technologies, accessible UI, and practical solutions.'
+    : 'Realizzo esperienze web curate, dalle interfacce alle applicazioni complete. Mi concentro sulle tecnologie JavaScript, sull’accessibilità e su soluzioni concrete.'
 
-  
+  const additionalText = isLangSwitch
+    ? 'I am a self-taught developer who enjoys taking a product from the first idea through to release. I am always learning, especially across software and mobile development. Outside work, you will find me surfing or spending time by the sea.'
+    : 'Sono uno sviluppatore autodidatta e mi piace seguire un prodotto dall’idea iniziale fino alla pubblicazione. Continuo a imparare, soprattutto nell’ambito dello sviluppo software e mobile. Fuori dal lavoro mi trovi spesso a fare surf o a godermi il mare.'
 
-        switch(random()){
-      case 0 : setIcon("🌊" ) 
-      break;
-      case 1 : setIcon("🍕" )  
-      break;
-      case 2 :  setIcon("🏄" )
-      break;
-      case 3 : setIcon("🤖" )
-      break; 
-    }  
- },[])
-    
-    
   return (
-    <section className='min-h-screen mt-24 md:mt-0 md:flex ' id="about">
-    <div className=" container mx-auto flex px-10 md:py-2 md:flex-row flex-col items-center ">
-      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-10 md:mb-0 items-center text-center">
-      {
-       isLangSwitch == false ?
-        <motion.h1
-          initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-          className="title-font sm:text-6xl text-3xl md:mb-4 font-medium  ">
-          Ciao, Sono Alessio.
-          <br className="hidden lg:inline-block " />Mi piace Sviluppare Applicazioni. E mangiare Pizza <span className=' animate-bounce'>{icon}</span>
-        </motion.h1>
-        :
-        <motion.h1
-          initial={{opacity:0 ,y:-10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-          className="title-font sm:text-6xl text-3xl md:mb-2 font-medium ">
-          Hi, I&apos;m Alessio.
-          <br className="hidden lg:inline-block " />I love to build apps. And Eating Pizza <span className=' animate-bounce'>{icon}</span>
-        </motion.h1>}
-        { isLangSwitch == false ?
-          < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} className=" md:mb-8 leading-relaxed font-medium text-lg ">
-            Sono uno sviluppatore Web autodidatta con una passione per le tecnologie JavaScript.{ readMore == false? HandleReadMore() :null}
-            <br />
-            { readMore == true ? <div>
-            Mi concentro principalmente su sviluppo Web frontend, creando siti Web e applicazioni Web interattive e coinvolgenti.
-            Sono sempre alla ricerca di nuove sfide e opportunità per ampliare le mie conoscenze e competenze.
-            In futuro vorrei approfondendire le mie conoscenze in sviluppo software e sviluppo di applicazioni mobili.
-            <br />
-            Oltre al mio lavoro, ho una grande passione per gli sport all&apos;aperto, in particolare per il surf.
-            Amo trascorrere il mio tempo libero tra le onde 🌊 e godendomi la bellezza del mare.
-            <br />
-            Amo mangiare pizza 🍕 e stare in compagnia dei miei amici.
-            Sono una persona creativa e orientata al problem solving.
-            Sono sempre pronto a mettermi alla prova e ad affrontare nuove sfide. { readMore &&  HandleReadMore() }</div> : null}
-        </motion.p>
-        :
-        < motion.p initial={{opacity:0 ,x:-10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}}
-           className={`md:mb-8 leading-relaxed font-medium text-lg `}>
-        I am a self-taught web developer with a passion for JavaScript technologies. { readMore== false?  HandleReadMore() : null}
-        <br />
-        { readMore == true ? <div>I mainly focus on frontend web development, creating interactive and engaging websites and web applications.
-        I am always looking for new challenges and opportunities to expand my knowledge and skills.
-        In the future, I would like to deepen my knowledge in software development and mobile application development.
-        <br />
-        In addition to my work, I have a great passion for outdoor sports, especially surfing.
-        I love spending my free time in the waves 🌊 and enjoying the beauty of the sea.
-        <br />
-        I love eating pizza 🍕 and being in the company of my friends.
-        I am a creative and problem-solving oriented person.
-        I am always ready to challenge myself and take on new challenges. { readMore &&  HandleReadMore() } </div> : null }
-
-        </motion.p>}
-        <div className="flex justify-center">
-          <motion.a initial={{opacity:0 ,y:10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-            href="#contact"
-            className=" transition-all ease-in duration-200 inline-flex text-slatr-300 bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
-            Work With Me
-          </motion.a>
-          <motion.a
-          initial={{opacity:0 ,y:10}} transition={{delay:.5}} whileInView={{opacity:1,y:1}}
-            href="#projects"
-            className={` transition-all ease-in duration-200 ml-4 inline-flex ${isDarkMode?`bg-gray-800`: 'bg-slate-300 text-slate-900'}  border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg`}>
-            See My Past Work
-          </motion.a>
+    <section className="hero section-container" id="about">
+      <div className="hero-grid">
+        <div>
+          <motion.span
+            className="section-kicker"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+          >
+            {isLangSwitch
+              ? 'Web developer · AI & DATA Specialist'
+              : 'Sviluppatore web · AI & DATA Specialist'}
+          </motion.span>
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+          >
+            {isLangSwitch ? <>Web developer<br />focused on <span>the details.</span></> : <>Sviluppatore web<br />con cura per <span>i dettagli.</span></>}
+          </motion.h1>
+          <p className="hero-copy">
+            {introduction}
+            {readMore && <> {additionalText}</>}
+          </p>
+          <button
+            type="button"
+            className="read-more"
+            aria-expanded={readMore}
+            onClick={() => setReadMore((open) => !open)}
+          >
+            {readMore
+              ? <>{isLangSwitch ? 'Read less' : 'Leggi meno'} <FiArrowUpRight /></>
+              : <>{isLangSwitch ? 'More about me' : 'Scopri di più'} <FiArrowDownRight /></>}
+          </button>
+          <div className="hero-actions">
+            <a href="#projects" className="button-primary">
+              {isLangSwitch ? 'View selected work' : 'Progetti selezionati'} <FiArrowUpRight />
+            </a>
+            <a href="#contact" className="button-secondary">
+              {isLangSwitch ? 'Get in touch' : 'Contattami'}
+            </a>
+          </div>
+          <div className="hero-meta">
+            <span><i className="status-dot" /> {isLangSwitch ? 'Open to opportunities' : 'Disponibile per nuove opportunità'}</span>
+            <span>Catania, Italy</span>
+          </div>
         </div>
+
+        <motion.div
+          className="code-window"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.18 }}
+          aria-label="Example code profile"
+        >
+          <div className="code-toolbar">
+            <span className="window-controls"><i /><i /><i /></span>
+            <span>alessio.ts</span>
+            <span className="code-toolbar-label">TypeScript</span>
+          </div>
+          <div className="code-body" aria-hidden="true">
+            <div className="code-line"><span className="line-number">1</span><span><b>const</b> developer = {'{'}</span></div>
+            <div className="code-line"><span className="line-number">2</span><span className="code-indent"><b>name</b>: <i>&apos;Alessio Russo&apos;</i>,</span></div>
+            <div className="code-line"><span className="line-number">3</span><span className="code-indent"><b>role</b>: <i>&apos;Web developer · AI &amp; DATA Specialist&apos;</i>,</span></div>
+            <div className="code-line"><span className="line-number">4</span><span className="code-indent"><b>focus</b>: [</span></div>
+            <div className="code-line"><span className="line-number">5</span><span className="code-indent code-indent-deep"><i>&apos;Web applications&apos;</i>,</span></div>
+            <div className="code-line"><span className="line-number">6</span><span className="code-indent code-indent-deep"><i>&apos;Frontend engineering&apos;</i></span></div>
+            <div className="code-line"><span className="line-number">7</span><span className="code-indent">],</span></div>
+            <div className="code-line"><span className="line-number">8</span><span className="code-indent"><b>openToWork</b>: <strong>true</strong></span></div>
+            <div className="code-line"><span className="line-number">9</span><span>{'}'}</span></div>
+          </div>
+          <div className="code-footer">
+            <span><i className="status-dot" /> {isLangSwitch ? 'Available for opportunities' : 'Disponibile per nuove opportunità'}</span>
+            <span>CT · IT</span>
+          </div>
+        </motion.div>
       </div>
-      <motion.div initial={{opacity:0 ,x:10}} transition={{delay:.5}} whileInView={{opacity:1,x:1}} 
-          className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex justify-center ">
-            <div className=' bg-gradient-to-r from-slate-100 via-indigo-800 to-cyan-800 w-full h-full mix-blend-soft-light rounded-full animate-spinSlow absolute  '> </div>
-        <Image 
-        className="object-cover object-center rounded-full"
-        priority
-          alt="Alessio coding portrait"
-          width={515}
-          height={515}
-          src= {coding}/>        
-      </motion.div>
-    </div>
-  </section>
+    </section>
   )
 }
 

@@ -1,13 +1,3 @@
-import todo from './asset/todo_app.webp'
-import BW from './asset/BlueWaveHolidayHouse.webp'
-import CV from './asset/CH.webp'
-import IPS from './asset/IPS.webp'
-import WEA from './asset/WEA.webp'
-import GO from './asset/google.webp'
-import CHAT from './asset/CHAT.webp'
-import HOUSE from './asset/housing.png'
-import SEO from './asset/SEO.png'
-
 export const skills = ['HTML/CSS','JavaScript','TypeScript','React','Next.js','SASS','Styled Component','Post CSS','Tailwind','Sanity CMS','Redux Toolkit','Git','FireBase','Node.Js','AWS lightsail','Python','Pandas','Data','Machine Learning','scikit-learn','Seaborn','AI','lagngchain','OpenAI API','FastAPI','Flask','REST API','AWS S3','Rag','Docker'];
         
 
@@ -17,14 +7,14 @@ export const projects = [
         subtitle: "Next.js,FastApi,LangChain, RAG, AI, Web Scraping",
         description:
           "tool full-stack che combina web scraping avanzato, AI, RAG per scansioni automatiche in tempo reale con assistente AI conversazionale.",
-          image: SEO,
+          visual: "seo",
         link: "https://github.com/n0wherefast/SeoAgentPro",
       },{
         title: "California Housing ",
         subtitle: "next.js Flask Machine Learning",
         description:
          "Web app che utilizza un modello Machine Learning allenato sul dataset California Housing per stimare i prezzi medi basandosi su dei parametri ",
-          image: HOUSE,
+          visual: "housing",
         link: "https://california-housing-price-predictor.vercel.app/",
       },
     {
@@ -32,7 +22,7 @@ export const projects = [
         subtitle: "Next,js Application ",
         description:
         "Sito Web realizzato per Italian Pizza Catering. Stack e Features: Next.js,Tailwind, ,framer Motion,Google Tag Manager,SEO Optimization,",
-          image: IPS,
+          visual: "catering",
         link: "https://italianpizzacatering.com.au/",
       },
     {
@@ -40,7 +30,7 @@ export const projects = [
         subtitle: "Next,js Application ",
         description:
           "Sito Web sviluppato per Blue Wave Holiday House. Stack e Features: Next.js,Tailwind, Redux Toolkit, Dashboard,framer Motion,SEO Optimization",
-          image: BW,
+          visual: "holiday",
         link: "https://www.bluewaveholidayhouse.com/",
       },
     {
@@ -48,7 +38,7 @@ export const projects = [
         subtitle: "Next,js Application ",
         description:
           "Sito Web sviluppato per Cortese Home. Stack e Features: Next.js,Tailwind, Redux Toolkit,framer Motion",
-          image: CV,
+          visual: "real-estate",
         link: "https://cortese-home-next-va8g.vercel.app/",
       },
     // {
@@ -64,7 +54,7 @@ export const projects = [
         subtitle: "Next.js,Firebase,TypeScript",
         description:
           "App clone della home page di google con barra di ricerca con previsione del testo e autenticazione tramite google",
-          image: GO,
+          visual: "search",
         link: "https://google-clone-next-js-beta.vercel.app/",
       },
     // {
@@ -88,7 +78,7 @@ export const projects = [
         subtitle: "React and Firebase",
         description:
           "Chat App realizzata in Next.js e Firebase dove è possibile scegliere tre chat predefinite o crearne delle nuove.È presente un crittografia end to end basata sul caesar cipher ",
-          image: CHAT,
+          visual: "chat",
         link: "https://next-chat-app-blue.vercel.app",
       },
       

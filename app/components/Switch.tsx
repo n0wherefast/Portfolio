@@ -1,9 +1,16 @@
 import React from 'react'
 import Switch from 'react-switch'
 
-export default function Switches({checked , handle}:any) {
+type SwitchesProps = {
+  checked: boolean
+  handle: () => void
+  label: string
+}
+
+export default function Switches({ checked, handle, label }: SwitchesProps) {
   return (
     <Switch
+    aria-label={label}
     height={18}
     width={46}
     className="react-switch"

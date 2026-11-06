@@ -1,160 +1,124 @@
 'use client'
-import React ,{FormEvent, useRef, useState}from 'react'
+
+import { FormEvent } from 'react'
 import { useGlobalContext } from '../context/cotext'
-import { FaInstagram,FaLinkedinIn,FaWhatsapp,FaGithub } from 'react-icons/fa'
-import Link from 'next/link'
+import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { FiArrowUpRight, FiAward } from 'react-icons/fi'
 import Swal from 'sweetalert2'
 
-
 function Contacts() {
-  
-  const {isDarkMode}:any = useGlobalContext()
-  const [result, setResult] = useState("");
-  
+  const { isDarkMode } = useGlobalContext()
 
-  const onSubmit = async (event:any) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    formData.append("access_key", "c7432147-1056-4925-93e0-c9130350c67d");
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    formData.append('access_key', 'c7432147-1056-4925-93e0-c9130350c67d')
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await response.json()
 
-    const data = await response.json();
-    setResult(data.success ? "Success!" : "Error");
-    if(data.success) { 
-      Swal.fire({
-        icon: 'success',
-        title: 'Message Sent',
-        text: 'Thank you for reaching out. I will get back to you soon!',
-        theme: isDarkMode ? 'dark' : 'light',
-      });
-      event.target.reset();
-    } else {
-      Swal.fire({
+      if (data.success) {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Message sent',
+          text: 'Thank you for reaching out. I will get back to you soon!',
+          theme: isDarkMode ? 'dark' : 'light',
+        })
+        form.reset()
+      } else {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Message not sent',
+          text: 'There was an error sending your message. Please try again later.',
+          theme: isDarkMode ? 'dark' : 'light',
+        })
+      }
+    } catch {
+      await Swal.fire({
         icon: 'error',
-        title: 'Message Not Sent',
-        text: 'There was an error sending your message. Please try again later.',
-      });
+        title: 'Message not sent',
+        text: 'Could not connect to the message service. Please try again later.',
+        theme: isDarkMode ? 'dark' : 'light',
+      })
     }
   }
 
-  console.log(result)
   return (
-    <section id="contact" className="relative mt-[8rem] flex flex-col justify-center items-center">
-      <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Send me a message!</h1>
-      <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className={` lg:w-2/3 md:w-1/2 ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative `}>
-          <iframe
-            width="100%"
-            height="100%"
-            title="map"
-            className="absolute inset-0"
-            style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2315916083!2d15.163503676406021!3d37.573163923747174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313fbd1e4d62a1d%3A0xa930e3774f003ef0!2sVia%20Livorno%2C%20121%2C%2095021%20Aci%20Castello%20CT!5e0!3m2!1sit!2sit!4v1715179051679!5m2!1sit!2sit"
-           />
-          <div className= {`${isDarkMode?`bg-gray-900`: `bg-slate-300`} relative flex flex-wrap py-6 rounded shadow-md`} >
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold tracking-widest text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                
-                Aci Castello, CT 95021
-              </p>
+    <section className="section-block" id="contact">
+      <div className="section-container contact-grid">
+        <div>
+          <span className="section-kicker">Get in touch</span>
+          <h2 className="section-heading">Have a project in mind?</h2>
+          <p className="section-copy">
+            Have a question, a proposal, or just want to say hello? I&apos;d be glad to hear from you.
+          </p>
+
+          <div className="contact-details">
+            <div>
+              <span className="contact-detail-label">Email</span>
+              <a className="contact-detail-value" href="mailto:ale120789@gmail.com">ale120789@gmail.com</a>
             </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold  tracking-widest text-xs">
-                EMAIL
-              </h2>
-              <a className="text-indigo-400 leading-relaxed">
-                ale120789@gmail.com
-              </a>
-              <h2 className="title-font font-semibold  tracking-widest text-xs mt-4">
-                PHONE
-              </h2>
-              <p className="leading-relaxed">347-7934906</p>
+            <div>
+              <span className="contact-detail-label">Phone</span>
+              <a className="contact-detail-value" href="tel:+393477934906">+39 347 793 4906</a>
             </div>
+            <div>
+              <span className="contact-detail-label">Based in</span>
+              <span className="contact-detail-value">Catania, Italy</span>
+            </div>
+          </div>
+
+          <div className="social-links" aria-label="Social profiles">
+            <a className="social-link" href="https://github.com/n0wherefast" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <FaGithub size={17} />
+            </a>
+            <a className="social-link" href="https://www.linkedin.com/in/alessio-russo-a73720219/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <FaLinkedinIn size={17} />
+            </a>
+            <a className="social-link" href="https://www.instagram.com/n0where_fast_?igsh=dmd1N3Y0azk5dzVt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FaInstagram size={17} />
+            </a>
+            <a className="social-link" href="https://wa.me/qr/ZMI6ZCYXNYHII1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <FaWhatsapp size={17} />
+            </a>
+            <a
+              className="social-link"
+              href="https://www.credential.net/929cd0b8-3628-41be-879d-a183fe270765#acc.ujV7KZRE"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AI & DATA Specialist credential"
+              title="AI & DATA Specialist credential"
+            >
+              <FiAward size={18} />
+            </a>
           </div>
         </div>
 
-      
-        <form
-          // ref={form}
-          onSubmit={onSubmit}
-          name="contact"
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
-        >
-                <h2 className="t sm:text-4xl text-3xl mb-1 font-medium title-font">
-                  Hire Me
-                </h2>
-                <p className="leading-relaxed mb-5 text-xl font-thin">
-                Got a question or proposal, or just want to say hello? Go ahead.
-                </p>
-                <div className="relative mb-4">
-                  <label htmlFor="name" className="leading-7 text-sm text-gray-100">
-                    Name
-                  </label>
-                  <input
-                    autoComplete='on'
-                    type="text"
-                    id="name"
-                    name="name"
-                    
-                    className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
-                  />
-                </div>
-                <div className="relative mb-4">
-                  <label htmlFor="email" className="leading-7 text-sm text-gray-100">
-                    Email
-                  </label>
-                  <input
-                    autoComplete='on'
-                    type="email"
-                    id="email"
-                    name="email"
-                   
-                    className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
-                  />
-                </div>
-
-                
-                <div className="relative mb-4">
-                  <label
-                    htmlFor="message"
-                    className="leading-7 text-sm text-gray-100">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    // onChange={(e)=> setMessage(e.target.value)}
-                    className= {`w-full ${isDarkMode?`bg-gray-900`: `bg-slate-300`} rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
-                  />
-                </div>
-
-
-                <div className='flex items-center justify-center w-full'>
-                    <button type='submit'
-                            className= {`relative flex h-[50px] w-80 text-lg items-center justify-center overflow-hidden ${isDarkMode?` bg-slate-900`:`bg-slate-300`} shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-green-600 before:duration-500 before:ease-out hover:before:h-full hover:before:w-96`} >
-                      <span className="relative z-10">Submit</span>
-                    </button>
-                </div>
-          
+        <form className="contact-form" onSubmit={onSubmit} name="contact">
+          <label htmlFor="name">
+            Name
+            <input id="name" name="name" type="text" autoComplete="name" placeholder="Your name" required />
+          </label>
+          <label htmlFor="email">
+            Email
+            <input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+          </label>
+          <label htmlFor="message">
+            Message
+            <textarea id="message" name="message" placeholder="Tell me a little about your project..." required />
+          </label>
+          <button className="button-primary" type="submit">
+            Send message <FiArrowUpRight />
+          </button>
         </form>
-
       </div>
-      {/* <h1 className='p-5 sm:text-8xl text-3xl mb-1 font-black  '>Social</h1> */}
-       <div className=' w-1/2 h-10 flex justify-between items-center m-5'>
-          <Link href="https://www.instagram.com/n0where_fast_?igsh=dmd1N3Y0azk5dzVt" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaInstagram size={30}/>  </Link>
-          <Link href="https://www.linkedin.com/in/alessio-russo-a73720219/" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaLinkedinIn size={30}/> </Link>
-          <Link href="https://wa.me/qr/ZMI6ZCYXNYHII1" className='hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaWhatsapp size={30}/> </Link> 
-          <Link href="https://github.com/n0wherefast" className=' hover:text-teal-500 hover:scale-150 hover:font-bold transition-all'> <FaGithub size={30}/> </Link> 
-          
-       </div>
     </section>
   )
 }
+
 export default Contacts
