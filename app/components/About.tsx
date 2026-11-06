@@ -37,7 +37,7 @@ function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08 }}
           >
-            {isLangSwitch ? <>Web developer<br />focused on <span>the details.</span></> : <>Sviluppatore web<br />con cura per <span>i dettagli.</span></>}
+            {isLangSwitch ? <>I build web apps<br />and <span>AI solutions.</span></> : <>Creo applicazioni web<br />e <span>soluzioni AI.</span></>}
           </motion.h1>
           <p className="hero-copy">
             {introduction}
